@@ -1,23 +1,23 @@
-import { ElDocument } from "typings/document";
-import { DocumentAttribute } from "typings/attribute";
+import { ElDocument } from 'typings/document'
+import { DocumentAttribute } from 'typings/attribute'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: "name",
-    description: "幻灯片的名字，可用作 `setActiveItem` 的参数",
-    type: "string",
-    value: "—",
-    default: "—",
+    name: 'name',
+    description: '幻灯片的名字，可用作 `setActiveItem` 的参数',
+    type: 'string',
+    value: '—',
+    default: '—'
   },
   {
-    name: "label",
-    description: "该幻灯片所对应指示器的文本",
-    type: "string",
-    value: "—",
-    default: "—",
-  },
-];
+    name: 'label',
+    description: '该幻灯片所对应指示器的文本',
+    type: 'string',
+    value: '—',
+    default: '—'
+  }
+]
 
-export const document: ElDocument = { attributes };
+export const document: ElDocument = { attributes }
 
-export default document;
+export default document

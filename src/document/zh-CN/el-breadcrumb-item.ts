@@ -1,24 +1,23 @@
-import { ElDocument } from "typings/document";
-import { DocumentAttribute } from "typings/attribute";
+import { ElDocument } from 'typings/document'
+import { DocumentAttribute } from 'typings/attribute'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: "to",
-    description: "路由跳转对象，同 `vue-router` 的 `to`",
-    type: "string/object",
-    value: "—",
-    default: "—",
+    name: 'to',
+    description: '路由跳转对象，同 `vue-router` 的 `to`',
+    type: 'string/object',
+    value: '—',
+    default: '—'
   },
   {
-    name: "replace",
-    description:
-      "在使用 to 进行路由跳转时，启用 replace 将不会向 history 添加新记录",
-    type: "boolean",
-    value: "—",
-    default: "false",
-  },
-];
+    name: 'replace',
+    description: '在使用 to 进行路由跳转时，启用 replace 将不会向 history 添加新记录',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  }
+]
 
-export const document: ElDocument = { attributes };
+export const document: ElDocument = { attributes }
 
-export default document;
+export default document

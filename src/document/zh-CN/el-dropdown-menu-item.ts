@@ -1,37 +1,37 @@
-import { ElDocument } from "typings/document";
-import { DocumentAttribute } from "typings/attribute";
+import { ElDocument } from 'typings/document'
+import { DocumentAttribute } from 'typings/attribute'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: "command",
-    description: "指令",
-    type: "string/number/object",
-    value: "—",
-    default: "—",
+    name: 'command',
+    description: '指令',
+    type: 'string/number/object',
+    value: '—',
+    default: '—'
   },
   {
-    name: "disabled",
-    description: "禁用",
-    type: "boolean",
-    value: "—",
-    default: "false",
+    name: 'disabled',
+    description: '禁用',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   },
   {
-    name: "divided",
-    description: "显示分割线",
-    type: "boolean",
-    value: "—",
-    default: "false",
+    name: 'divided',
+    description: '显示分割线',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   },
   {
-    name: "icon",
-    description: "图标类名",
-    type: "string",
-    value: "—",
-    default: "—",
-  },
-];
+    name: 'icon',
+    description: '图标类名',
+    type: 'string',
+    value: '—',
+    default: '—'
+  }
+]
 
-export const document: ElDocument = { attributes };
+export const document: ElDocument = { attributes }
 
-export default document;
+export default document

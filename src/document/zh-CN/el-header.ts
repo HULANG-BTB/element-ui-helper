@@ -1,16 +1,16 @@
-import { ElDocument } from "typings/document";
-import { DocumentAttribute } from "typings/attribute";
+import { ElDocument } from 'typings/document'
+import { DocumentAttribute } from 'typings/attribute'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: "height",
-    description: "顶栏高度",
-    type: "string",
-    value: "—",
-    default: "60px",
-  },
-];
+    name: 'height',
+    description: '顶栏高度',
+    type: 'string',
+    value: '—',
+    default: '60px'
+  }
+]
 
-export const document: ElDocument = { attributes };
+export const document: ElDocument = { attributes }
 
-export default document;
+export default document
