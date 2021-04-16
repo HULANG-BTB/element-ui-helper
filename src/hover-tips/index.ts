@@ -1,10 +1,24 @@
-import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResult, Hover, workspace, DebugConsoleMode, MarkdownString } from "vscode";
+import {
+  HoverProvider,
+  TextDocument,
+  Position,
+  CancellationToken,
+  ProviderResult,
+  Hover,
+  workspace,
+  DebugConsoleMode,
+  MarkdownString,
+} from "vscode";
 import CnDocument from "../document/zh-CN";
 import EnDocument from "../document/en-US";
 
 import { generator } from "../utils";
 
-const getHoverInstance = (language: string, tag: string, attribute: string | null): null | Hover => {
+const getHoverInstance = (
+  language: string,
+  tag: string,
+  attribute: string | null
+): null | Hover => {
   let document: Record<string, any>;
   if (language === "en-US") {
     document = EnDocument;
@@ -15,7 +29,11 @@ const getHoverInstance = (language: string, tag: string, attribute: string | nul
     const tagDocument = document[tag];
     const hoverMarkdownStrings: MarkdownString[] = [];
     Object.keys(tagDocument).forEach((key: string) => {
-      const hoverMarkdownString: MarkdownString = generator[key]?.(tagDocument, tag, attribute);
+      const hoverMarkdownString: MarkdownString = generator[key]?.(
+        tagDocument,
+        tag,
+        attribute
+      );
       if (hoverMarkdownString) {
         hoverMarkdownStrings.push(hoverMarkdownString);
       }
@@ -51,7 +69,11 @@ const hoverCreater = (tag: string, keyword: string): ProviderResult<Hover> => {
 };
 
 export const hoverProvider: HoverProvider = {
-  provideHover(document: TextDocument, position: Position, token: CancellationToken): ProviderResult<Hover> {
+  provideHover(
+    document: TextDocument,
+    position: Position,
+    token: CancellationToken
+  ): ProviderResult<Hover> {
     let tag: string = "";
     let keyword: string = "";
     const text = document.getText(document.getWordRangeAtPosition(position));
@@ -60,7 +82,9 @@ export const hoverProvider: HoverProvider = {
     if (text.length < 200) {
       // 获取当前目标
       const line = document.lineAt(position.line).text;
-      new RegExp(`[\\s|:|<|@]+([a-zA-Z0-9-]*${text}[a-zA-Z0-9-]*)[\\s|=|>]*`).test(line);
+      new RegExp(
+        `[\\s|:|<|@]+([a-zA-Z0-9-]*${text}[a-zA-Z0-9-]*)[\\s|=|>]*`
+      ).test(line);
       keyword = RegExp.$1;
       // 获取最近的标签名称
       for (let i = position.line; i >= 0; --i) {
