@@ -1,70 +1,31 @@
-# element-ui-helper README
+# Element-UI-Helper
+> Element-UI-Helper is a VS Code extension for Element-UI.
 
-This is the README for your extension "element-ui-helper". After writing up a brief description, we recommend including the following sections.
+Element-UI is a great library. More and more projects use it. So, For helping developer write more efficient by Element-UI, Element-UI-Helper is born.This is not an official project, but all the documents are from the official website.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+* Document
+* HoverTips
 
-For example if there is an image subfolder under your extension project workspace:
+## Support
 
-\!\[feature X\]\(images/feature-x.png\)
+* Vue
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## HoverTips
 
-## Requirements
+### Usage
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+The only step to use this extension is moving yout cursor to Element-UI tag.
 
-## Extension Settings
+![example](https://s1.ax1x.com/2020/10/15/0T6xk6.gif)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Contribution
 
-For example:
+If you want to help improve this project, Pleasse fork and initiate. a pull request after you fix some bugs or finished some new features. Your pull request will make VSCode-Element-Helper better.
 
-This extension contributes the following settings:
+## LICENSE
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+**MIT**
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## **Enjoy yourself!**
