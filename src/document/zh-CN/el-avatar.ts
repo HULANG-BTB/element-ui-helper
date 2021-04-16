@@ -1,12 +1,12 @@
-import { DocumentAttribute } from "typings/attribute";
 import { ElDocument } from "typings/document";
+import { DocumentAttribute } from "typings/attribute";
 import { DocumentEvent } from "typings/event";
 import { DocumentSlot } from "typings/slot";
 
 export const attributes: DocumentAttribute[] = [
   {
     name: "icon",
-    description: "设置头像的图标type，参考 Icon 组件",
+    description: "设置头像的图标类型，参考 Icon 组件",
     type: "string",
     value: "",
     default: "",
@@ -49,17 +49,10 @@ export const attributes: DocumentAttribute[] = [
   },
   {
     name: "fit",
-    description: "当展示type为图片的时候，设置图片如何适应容器框",
+    description: "当展示类型为图片的时候，设置图片如何适应容器框",
     type: "string",
     value: "fill / contain / cover / none / scale-down",
     default: "cover",
-  },
-];
-
-export const slots: DocumentSlot[] = [
-  {
-    name: "default",
-    description: "自定义头像展示内容",
   },
 ];
 
@@ -72,6 +65,10 @@ export const events: DocumentEvent[] = [
   },
 ];
 
-export const document: ElDocument = { attributes, slots, events };
+export const slots: DocumentSlot[] = [
+  { name: "default", description: "自定义头像展示内容" },
+];
+
+export const document: ElDocument = { attributes, events, slots };
 
 export default document;

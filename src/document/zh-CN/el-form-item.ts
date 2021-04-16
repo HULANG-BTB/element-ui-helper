@@ -1,13 +1,14 @@
-import { DocumentAttribute } from "typings/attribute";
 import { ElDocument } from "typings/document";
+import { DocumentAttribute } from "typings/attribute";
 import { DocumentMethod } from "typings/method";
-import { DocumentScopedSlot } from "typings/scoped-slot";
 import { DocumentSlot } from "typings/slot";
+import { DocumentScopedSlot } from "typings/scoped-slot";
 
 export const attributes: DocumentAttribute[] = [
   {
     name: "prop",
-    description: "表单域 model 字段，在使用 validate、resetFields 方法的情况下，该属性是必填的",
+    description:
+      "表单域 model 字段，在使用 validate、resetFields 方法的情况下，该属性是必填的",
     type: "string",
     value: "传入 Form 组件的 `model` 中的字段",
     default: "—",
@@ -31,7 +32,7 @@ export const attributes: DocumentAttribute[] = [
     description: "是否必填，如不设置，则会根据校验规则自动生成",
     type: "boolean",
     value: "—",
-    default: false,
+    default: "false",
   },
   {
     name: "rules",
@@ -42,7 +43,8 @@ export const attributes: DocumentAttribute[] = [
   },
   {
     name: "error",
-    description: "表单域验证错误信息, 设置该值会使表单验证状态变为`error`，并显示该错误信息",
+    description:
+      "表单域验证错误信息, 设置该值会使表单验证状态变为`error`，并显示该错误信息",
     type: "string",
     value: "—",
     default: "—",
@@ -52,14 +54,14 @@ export const attributes: DocumentAttribute[] = [
     description: "是否显示校验错误信息",
     type: "boolean",
     value: "—",
-    default: true,
+    default: "true",
   },
   {
     name: "inline-message",
     description: "以行内形式展示校验信息",
     type: "boolean",
     value: "—",
-    default: false,
+    default: "false",
   },
   {
     name: "size",
@@ -84,28 +86,17 @@ export const methods: DocumentMethod[] = [
 ];
 
 export const slots: DocumentSlot[] = [
-  {
-    name: "—",
-    description: "Form Item 的内容",
-  },
-  {
-    name: "label",
-    description: "标签文本的内容",
-  },
+  { name: "—", description: "Form Item 的内容" },
+  { name: "label", description: "标签文本的内容" },
 ];
 
-const scopedSlots: DocumentScopedSlot[] = [
+export const scopedSlots: DocumentScopedSlot[] = [
   {
     name: "error",
     description: "自定义表单校验信息的显示方式，参数为 { error }",
   },
 ];
 
-export const document: ElDocument = {
-  attributes,
-  methods,
-  slots,
-  scopedSlots,
-};
+export const document: ElDocument = { attributes, methods, slots, scopedSlots };
 
 export default document;
