@@ -13,7 +13,7 @@
 	"icon": "element.png",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/HULANG-BTB/vscode-element-ui.git"
+		"url": "https://github.com/HULANG-BTB/element-ui-helper.git"
 	},
 	"engines": {
 		"vscode": "^1.50.0"
