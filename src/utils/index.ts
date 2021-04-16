@@ -72,7 +72,7 @@ export const generator = {
       const row = methods.find((row: DocumentMethod) => row.name === attribute);
       if (row) {
         markdownString.appendMarkdown(
-          `|${row.name}|${row.description}|${row.parameter}||\r`
+          `|${row.name}|${row.description}|${row.parameter}|\r`
         );
         isUndefined = false;
       }
@@ -129,7 +129,7 @@ export const generator = {
     if (slots.length) {
       markdownString.appendMarkdown(`### ${tag} 插槽\r`);
       markdownString.appendMarkdown("| 插槽 | 说明 |\r");
-      markdownString.appendMarkdown("|---|---|:-:|\r");
+      markdownString.appendMarkdown("|---|---|\r");
     }
     if (attribute === null) {
       // 属性 和标签一样 显示全部
@@ -161,7 +161,7 @@ export const generator = {
     if (scopedSlots.length) {
       markdownString.appendMarkdown(`### ${tag} 插槽\r`);
       markdownString.appendMarkdown("| 插槽 | 说明 |\r");
-      markdownString.appendMarkdown("|---|---|:-:|\r");
+      markdownString.appendMarkdown("|---|---|\r");
     }
     if (attribute === null) {
       // 属性 和标签一样 显示全部
