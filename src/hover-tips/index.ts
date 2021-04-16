@@ -7,22 +7,22 @@ import { generator } from "../utils";
 const getHoverInstance = (language: string, tag: string, attribute: string | null): null | Hover => {
   let document: Record<string, any>;
   if (language === "en-US") {
-    return null;
+    document = EnDocument;
   } else {
     document = CnDocument;
-    if (Object.prototype.hasOwnProperty.call(document, tag)) {
-      const tagDocument = document[tag];
-      const hoverMarkdownStrings: MarkdownString[] = [];
-      Object.keys(tagDocument).forEach((key: string) => {
-        const hoverMarkdownString: MarkdownString = generator[key]?.(tagDocument, tag, attribute);
-        if (hoverMarkdownString) {
-          hoverMarkdownStrings.push(hoverMarkdownString);
-        }
-      });
-      return new Hover(hoverMarkdownStrings);
-    } else {
-      return null;
-    }
+  }
+  if (Object.prototype.hasOwnProperty.call(document, tag)) {
+    const tagDocument = document[tag];
+    const hoverMarkdownStrings: MarkdownString[] = [];
+    Object.keys(tagDocument).forEach((key: string) => {
+      const hoverMarkdownString: MarkdownString = generator[key]?.(tagDocument, tag, attribute);
+      if (hoverMarkdownString) {
+        hoverMarkdownStrings.push(hoverMarkdownString);
+      }
+    });
+    return new Hover(hoverMarkdownStrings);
+  } else {
+    return null;
   }
 };
 
