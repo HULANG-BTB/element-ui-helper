@@ -56,12 +56,18 @@ export const hoverProvider: HoverProvider = {
     let keyword: string = ''
     const text = document.getText(document.getWordRangeAtPosition(position))
 
-    // 对于悬停时 长度小于200的才进行匹配
+    // 对于悬停时 长度小于200的才进行匹配 避免出现整个文件的情况
     if (text.length < 200) {
       // 获取当前目标
       const line = document.lineAt(position.line).text
+      // 反标签 不处理
+      if (/<\/[a-zA-Z--]*>/.test(line)) {
+        return null
+      }
+
       new RegExp(`[\\s|:|<|@]+([a-zA-Z0-9-]*${text}[a-zA-Z0-9-]*)[\\s|=|>]*`).test(line)
       keyword = RegExp.$1
+
       // 获取最近的标签名称
       for (let i = position.line; i >= 0; --i) {
         const text = document.lineAt(i).text
