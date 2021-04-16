@@ -1,10 +1,10 @@
-import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResult, Hover, workspace, DebugConsoleMode, MarkdownString } from 'vscode'
+import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResult, Hover, workspace, DebugConsoleMode, MarkdownString, Range } from 'vscode'
 import CnDocument from '../document/zh-CN'
 import EnDocument from '../document/en-US'
 
 import { generator } from '../utils'
 
-const getHoverInstance = (language: string, tag: string, attribute: string | null): null | Hover => {
+const getHoverInstance = (language: string, tag: string, attribute: string | null, range: Range): null | Hover => {
   let document: Record<string, any>
   if (language === 'en-US') {
     document = EnDocument
@@ -20,13 +20,13 @@ const getHoverInstance = (language: string, tag: string, attribute: string | nul
         hoverMarkdownStrings.push(hoverMarkdownString)
       }
     })
-    return new Hover(hoverMarkdownStrings)
+    return new Hover(hoverMarkdownStrings, range)
   } else {
     return null
   }
 }
 
-const hoverCreater = (tag: string, keyword: string): ProviderResult<Hover> => {
+const hoverCreater = (tag: string, keyword: string, range: Range): ProviderResult<Hover> => {
   if (!tag.includes('el-')) {
     // 如果不是element的标签 则返回 null 表示没有hover
     return null
@@ -45,7 +45,7 @@ const hoverCreater = (tag: string, keyword: string): ProviderResult<Hover> => {
   // 如果不存在实例 则尝试常见实例
   if (instance[key] === undefined) {
     const attribute = tag.includes(keyword) ? null : keyword
-    instance[key] = getHoverInstance(language, tag, attribute)
+    instance[key] = getHoverInstance(language, tag, attribute, range)
   }
   return instance[key]
 }
@@ -54,6 +54,7 @@ export const hoverProvider: HoverProvider = {
   provideHover(document: TextDocument, position: Position, token: CancellationToken): ProviderResult<Hover> {
     let tag: string = ''
     let keyword: string = ''
+    let screenRange: Range = new Range(position, position)
     const text = document.getText(document.getWordRangeAtPosition(position))
 
     // 对于悬停时 长度小于200的才进行匹配 避免出现整个文件的情况
@@ -68,6 +69,11 @@ export const hoverProvider: HoverProvider = {
       new RegExp(`[\\s|:|<|@]+([a-zA-Z0-9-]*${text}[a-zA-Z0-9-]*)[\\s|=|>]*`).test(line)
       keyword = RegExp.$1
 
+      const keywordStartPosition = new Position(position.line, line.indexOf(keyword))
+      const keyWordEndPosition = new Position(position.line, keywordStartPosition.character + keyword.length)
+
+      screenRange = new Range(keywordStartPosition, keyWordEndPosition)
+
       // 获取最近的标签名称
       for (let i = position.line; i >= 0; --i) {
         const text = document.lineAt(i).text
@@ -78,6 +84,6 @@ export const hoverProvider: HoverProvider = {
       }
     }
 
-    return hoverCreater(tag, keyword)
+    return hoverCreater(tag, keyword, screenRange)
   }
 }
