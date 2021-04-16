@@ -28,7 +28,14 @@ const build = (dir) => {
           return;
         }
         if (line.includes("Attributes")) {
-          filename = "el-" + line.replace(/#/g, "").replace("Attributes", "").trim().replace(/\ /g, "-").toLocaleLowerCase();
+          filename =
+            "el-" +
+            line
+              .replace(/#/g, "")
+              .replace("Attributes", "")
+              .trim()
+              .replace(/\ /g, "-")
+              .toLocaleLowerCase();
           if (filename.length === 3) {
             filename = "el-" + doc.substr(0, doc.length - 3);
           }
@@ -37,7 +44,14 @@ const build = (dir) => {
           return;
         }
         if (line.includes("Events") && line.includes("###")) {
-          filename = "el-" + line.replace(/#/g, "").replace("Events", "").trim().replace(/\ /g, "-").toLocaleLowerCase();
+          filename =
+            "el-" +
+            line
+              .replace(/#/g, "")
+              .replace("Events", "")
+              .trim()
+              .replace(/\ /g, "-")
+              .toLocaleLowerCase();
           if (filename.length === 3) {
             filename = "el-" + doc.substr(0, doc.length - 3);
           }
@@ -46,7 +60,14 @@ const build = (dir) => {
           return;
         }
         if (line.includes("Methods")) {
-          filename = "el-" + line.replace(/#/g, "").replace("Methods", "").trim().replace(/\ /g, "-").toLocaleLowerCase();
+          filename =
+            "el-" +
+            line
+              .replace(/#/g, "")
+              .replace("Methods", "")
+              .trim()
+              .replace(/\ /g, "-")
+              .toLocaleLowerCase();
           if (filename.length === 3) {
             filename = "el-" + doc.substr(0, doc.length - 3);
           }
@@ -54,8 +75,15 @@ const build = (dir) => {
           skip = 2;
           return;
         }
-        if (line.includes("Scoped Slot") || line.includes("scoped slot")) {
-          filename = "el-" + line.replace(/#/g, "").replace("Scoped Slot", "").trim().replace(/\ /g, "-").toLocaleLowerCase();
+        if (line.includes("Scoped Slot")) {
+          filename =
+            "el-" +
+            line
+              .replace(/#/g, "")
+              .replace("Scoped Slot", "")
+              .trim()
+              .replace(/\ /g, "-")
+              .toLocaleLowerCase();
           if (filename.length === 3) {
             filename = "el-" + doc.substr(0, doc.length - 3);
           }
@@ -63,8 +91,16 @@ const build = (dir) => {
           skip = 2;
           return;
         }
-        if (line.includes("Slot") || line.includes("Slots")) {
-          filename = "el-" + line.replace(/#/g, "").replace("Slots", "").replace("Slot", "").trim().replace(/\ /g, "-").toLocaleLowerCase();
+        if (line.includes("Slot")) {
+          filename =
+            "el-" +
+            line
+              .replace(/#/g, "")
+              .replace("Slots", "")
+              .replace("Slot", "")
+              .trim()
+              .replace(/\ /g, "-")
+              .toLocaleLowerCase();
           if (filename.length === 3) {
             filename = "el-" + doc.substr(0, doc.length - 3);
           }
@@ -123,41 +159,87 @@ const build = (dir) => {
 
       readLine.on("close", () => {
         Object.keys(document).forEach((key) => {
-          const outStream = fs.createWriteStream(path.resolve(dir, key + ".ts"), { start: 0 });
+          const outStream = fs.createWriteStream(
+            path.resolve(dir, key + ".ts"),
+            { start: 0 }
+          );
           if (!outStream) {
             return;
           }
-          outStream.write(`import { ElDocument } from "typings/document";` + os.EOL);
+          outStream.write(
+            `import { ElDocument } from "typings/document";` + os.EOL
+          );
           if (document[key].attributes) {
-            outStream.write(`import { DocumentAttribute } from "typings/attribute";` + os.EOL);
+            outStream.write(
+              `import { DocumentAttribute } from "typings/attribute";` + os.EOL
+            );
           }
           if (document[key].methods) {
-            outStream.write(`import { DocumentMethod } from "typings/method";` + os.EOL);
+            outStream.write(
+              `import { DocumentMethod } from "typings/method";` + os.EOL
+            );
           }
           if (document[key].events) {
-            outStream.write(`import { DocumentEvent } from "typings/event";` + os.EOL);
+            outStream.write(
+              `import { DocumentEvent } from "typings/event";` + os.EOL
+            );
           }
           if (document[key].slots) {
-            outStream.write(`import { DocumentSlot } from "typings/slot";` + os.EOL);
+            outStream.write(
+              `import { DocumentSlot } from "typings/slot";` + os.EOL
+            );
           }
           if (document[key].scopedSlots) {
-            outStream.write(`import { DocumentScopedSlot } from "typings/scoped-slot";` + os.EOL);
+            outStream.write(
+              `import { DocumentScopedSlot } from "typings/scoped-slot";` +
+                os.EOL
+            );
           }
 
           if (document[key].attributes) {
-            outStream.write(os.EOL + `export const attributes: DocumentAttribute[] = ` + JSON.stringify(document[key].attributes) + `;` + os.EOL);
+            outStream.write(
+              os.EOL +
+                `export const attributes: DocumentAttribute[] = ` +
+                JSON.stringify(document[key].attributes) +
+                `;` +
+                os.EOL
+            );
           }
           if (document[key].methods) {
-            outStream.write(os.EOL + `export const methods: DocumentMethod[] = ` + JSON.stringify(document[key].methods) + `;` + os.EOL);
+            outStream.write(
+              os.EOL +
+                `export const methods: DocumentMethod[] = ` +
+                JSON.stringify(document[key].methods) +
+                `;` +
+                os.EOL
+            );
           }
           if (document[key].events) {
-            outStream.write(os.EOL + `export const events: DocumentEvent[] = ` + JSON.stringify(document[key].events) + `;` + os.EOL);
+            outStream.write(
+              os.EOL +
+                `export const events: DocumentEvent[] = ` +
+                JSON.stringify(document[key].events) +
+                `;` +
+                os.EOL
+            );
           }
           if (document[key].slots) {
-            outStream.write(os.EOL + `export const slots: DocumentSlot[] = ` + JSON.stringify(document[key].slots) + `;` + os.EOL);
+            outStream.write(
+              os.EOL +
+                `export const slots: DocumentSlot[] = ` +
+                JSON.stringify(document[key].slots) +
+                `;` +
+                os.EOL
+            );
           }
           if (document[key].scopedSlots) {
-            outStream.write(os.EOL + `export const scopedSlots: DocumentScopedSlot[] = ` + JSON.stringify(document[key].scopedSlots) + `;` + os.EOL);
+            outStream.write(
+              os.EOL +
+                `export const scopedSlots: DocumentScopedSlot[] = ` +
+                JSON.stringify(document[key].scopedSlots) +
+                `;` +
+                os.EOL
+            );
           }
 
           // 写入尾部
@@ -183,7 +265,7 @@ const build = (dir) => {
 
           outStream.end(() => {
             try {
-              // fs.unlinkSync(path.resolve(dir, doc));
+              fs.unlinkSync(path.resolve(dir, doc));
               console.log("unlink: " + path.resolve(dir, doc));
               console.log("create: " + path.resolve(dir, key + ".ts"));
             } catch (e) {
@@ -209,14 +291,16 @@ const createIndex = (dir) => {
     const moduleFile = filename.substr(0, filename.length - 3);
     const moduleName = moduleFile.replace(/(-([a-z]))/g, "$2");
     if (/\.md$/.test(filename)) {
-      // fs.unlinkSync(path.resolve(dir, filename));
+      fs.unlinkSync(path.resolve(dir, filename));
       console.log("unlink: " + path.resolve(dir, filename));
     } else if (/\.ts$/.test(filename)) {
       outStream.write(`import ${moduleName} from './${moduleFile}';` + os.EOL);
       exportModules.push(`"${moduleFile}": ${moduleName}`);
     }
   });
-  outStream.write(os.EOL + `export default { ${exportModules.join(",")} };` + os.EOL);
+  outStream.write(
+    os.EOL + `export default { ${exportModules.join(",")} };` + os.EOL
+  );
   console.log("create: index.ts");
 };
 
