@@ -6,23 +6,23 @@ Element-UI is a great library. More and more projects use it. So, For helping de
 ## Features
 
 * Document
-* HoverTips
+* Hover tips
 
 ## Support
 
 * Vue
 
-## HoverTips
+## Hover Tips
 
 ### Usage
 
-The only step to use this extension is moving yout cursor to Element-UI tag.
+The only step to use this extension is moving your cursor to Element-UI tag or prop.
 
-![example](https://s1.ax1x.com/2020/10/15/0T6xk6.gif)
+![https://i.loli.net/2021/04/19/GRL9CSWHIKBhvwj.gif](https://i.loli.net/2021/04/19/GRL9CSWHIKBhvwj.gif)
 
 ## Contribution
 
-If you want to help improve this project, Pleasse fork and initiate. a pull request after you fix some bugs or finished some new features. Your pull request will make VSCode-Element-Helper better.
+If you want to help improve this project, Please fork and initiate. a pull request after you fix some bugs or finished some new features. Your pull request will make Element-UI-Helper better.
 
 ## LICENSE
 
