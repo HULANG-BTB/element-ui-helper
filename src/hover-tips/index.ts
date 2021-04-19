@@ -15,7 +15,7 @@ const getHoverInstance = (language: string, tag: string, attribute: string | nul
     const tagDocument = document[tag]
     const hoverMarkdownStrings: MarkdownString[] = []
     Object.keys(tagDocument).forEach((key: string) => {
-      const hoverMarkdownString: MarkdownString = generator[key]?.(tagDocument, tag, attribute)
+      const hoverMarkdownString: MarkdownString = generator[key]?.(tagDocument, tag, attribute, language)
       if (hoverMarkdownString) {
         hoverMarkdownStrings.push(hoverMarkdownString)
       }

@@ -6,13 +6,18 @@ import { DocumentSlot } from 'typings/slot'
 import { MarkdownString } from 'vscode'
 
 export const generator = {
-  attributes: (document: ElDocument, tag: string, attribute: string | null): MarkdownString => {
+  attributes: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const attributes = document.attributes || []
     if (attributes.length) {
-      markdownString.appendMarkdown(`### ${tag} 属性 \r`)
-      markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
+      if (language === 'zh-CN') {
+        markdownString.appendMarkdown(`### ${tag} 属性 \r`)
+        markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
+      } else {
+        markdownString.appendMarkdown(`### ${tag} Attributes \r`)
+        markdownString.appendMarkdown('| Attributes | Description | Type | Accepted Values | Default |\r')
+      }
       markdownString.appendMarkdown('|---|---|:-:|---|:-:|\r')
     }
     if (attribute === null) {
@@ -34,13 +39,18 @@ export const generator = {
     }
     return markdownString
   },
-  methods: (document: ElDocument, tag: string, attribute: string | null): MarkdownString => {
+  methods: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const methods = document.methods || []
     if (methods.length) {
-      markdownString.appendMarkdown(`### ${tag} 方法\r`)
-      markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
+      if (language === 'zh-CN') {
+        markdownString.appendMarkdown(`### ${tag} 方法\r`)
+        markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
+      } else {
+        markdownString.appendMarkdown(`### ${tag} Method\r`)
+        markdownString.appendMarkdown('| Method | Description | Parameters |\r')
+      }
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
     if (attribute === null) {
@@ -62,13 +72,18 @@ export const generator = {
     }
     return markdownString
   },
-  events: (document: ElDocument, tag: string, attribute: string | null): MarkdownString => {
+  events: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const events = document.events || []
     if (events.length) {
-      markdownString.appendMarkdown(`### ${tag} 事件\r`)
-      markdownString.appendMarkdown('| 事件 | 说明 | 参数 |\r')
+      if (language === 'zh-CN') {
+        markdownString.appendMarkdown(`### ${tag} 事件\r`)
+        markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
+      } else {
+        markdownString.appendMarkdown(`### ${tag} Event\r`)
+        markdownString.appendMarkdown('| Event | Description | Parameters |\r')
+      }
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
     if (attribute === null) {
@@ -90,13 +105,18 @@ export const generator = {
     }
     return markdownString
   },
-  slots: (document: ElDocument, tag: string, attribute: string | null): MarkdownString => {
+  slots: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const slots = document.slots || []
     if (slots.length) {
-      markdownString.appendMarkdown(`### ${tag} 插槽\r`)
-      markdownString.appendMarkdown('| 插槽 | 说明 |\r')
+      if (language === 'zh-CN') {
+        markdownString.appendMarkdown(`### ${tag} 插槽\r`)
+        markdownString.appendMarkdown('| 插槽 | 说明 |\r')
+      } else {
+        markdownString.appendMarkdown(`### ${tag} Slot\r`)
+        markdownString.appendMarkdown('| Slot | Description |\r')
+      }
       markdownString.appendMarkdown('|---|---|\r')
     }
     if (attribute === null) {
@@ -118,13 +138,18 @@ export const generator = {
     }
     return markdownString
   },
-  scopedSlots: (document: ElDocument, tag: string, attribute: string | null): MarkdownString => {
+  scopedSlots: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const scopedSlots = document.scopedSlots || []
     if (scopedSlots.length) {
-      markdownString.appendMarkdown(`### ${tag} 插槽\r`)
-      markdownString.appendMarkdown('| 插槽 | 说明 |\r')
+      if (language === 'zh-CN') {
+        markdownString.appendMarkdown(`### ${tag} 插槽\r`)
+        markdownString.appendMarkdown('| 插槽 | 说明 |\r')
+      } else {
+        markdownString.appendMarkdown(`### ${tag} Slot\r`)
+        markdownString.appendMarkdown('| Slot | Description |\r')
+      }
       markdownString.appendMarkdown('|---|---|\r')
     }
     if (attribute === null) {
