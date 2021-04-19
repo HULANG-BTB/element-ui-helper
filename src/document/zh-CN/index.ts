@@ -1,4 +1,3 @@
-import alavatar from './al-avatar'
 import elalert from './el-alert'
 import elaside from './el-aside'
 import elautocomplete from './el-autocomplete'
@@ -73,7 +72,6 @@ import eltree from './el-tree'
 import elupload from './el-upload'
 
 export default {
-  'al-avatar': alavatar,
   'el-alert': elalert,
   'el-aside': elaside,
   'el-autocomplete': elautocomplete,
