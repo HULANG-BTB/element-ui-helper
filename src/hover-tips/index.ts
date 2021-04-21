@@ -2,7 +2,7 @@ import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResul
 import CnDocument from '../document/zh-CN'
 import EnDocument from '../document/en-US'
 
-import { generator } from '../utils'
+import { generator, toKebabCase } from '../utils'
 
 const getHoverInstance = (language: string, tag: string, attribute: string | null, range: Range): null | Hover => {
   let document: Record<string, any>
@@ -27,14 +27,18 @@ const getHoverInstance = (language: string, tag: string, attribute: string | nul
 }
 
 const hoverCreater = (tag: string, keyword: string, range: Range): ProviderResult<Hover> => {
-  if (!tag.includes('el-')) {
-    // 如果不是element的标签 则返回 null 表示没有hover
+  console.log(tag)
+
+  if (!/^[E|e]l/.test(tag)) {
+    // 如果不是element的标签(E|el开头) 则返回 null 表示没有hover
     return null
   }
   const config = workspace.getConfiguration().get('element-ui-helper')
   const { language } = config as any
   const instance: Record<string, Hover | null> = {}
   let key = ''
+  tag = toKebabCase(tag)
+  keyword = toKebabCase(keyword)
   if (tag.includes(keyword)) {
     // 当前是一个标签
     key = `${language}-${tag}`
@@ -42,6 +46,7 @@ const hoverCreater = (tag: string, keyword: string, range: Range): ProviderResul
     // 当前是一个属性
     key = `${language}-${tag}-${keyword}`
   }
+
   // 如果不存在实例 则尝试常见实例
   if (instance[key] === undefined) {
     const attribute = tag.includes(keyword) ? null : keyword
