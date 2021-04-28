@@ -6,7 +6,7 @@ import { DocumentSlot } from 'typings/slot'
 import { MarkdownString } from 'vscode'
 
 export const generator = {
-  attributes: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
+  attributes: (document: ElDocument, tag: string, attribute: string, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const attributes = document.attributes || []
@@ -20,7 +20,7 @@ export const generator = {
       }
       markdownString.appendMarkdown('|---|---|:-:|---|:-:|\r')
     }
-    if (attribute === null) {
+    if (attribute.length === 0) {
       // 属性 和标签一样 显示全部
       attributes.forEach((row: DocumentAttribute) => {
         markdownString.appendMarkdown(`|${row.name}|${row.description}|${row.type}|${row.value}|${row.default}|\r`)
@@ -39,7 +39,7 @@ export const generator = {
     }
     return markdownString
   },
-  methods: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
+  methods: (document: ElDocument, tag: string, attribute: string, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const methods = document.methods || []
@@ -53,7 +53,7 @@ export const generator = {
       }
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
-    if (attribute === null) {
+    if (attribute.length === 0) {
       // 属性 和标签一样 显示全部
       methods.forEach((row: DocumentMethod) => {
         markdownString.appendMarkdown(`|${row.name}|${row.description}|${row.parameter}|\r`)
@@ -72,7 +72,7 @@ export const generator = {
     }
     return markdownString
   },
-  events: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
+  events: (document: ElDocument, tag: string, attribute: string, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const events = document.events || []
@@ -86,7 +86,7 @@ export const generator = {
       }
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
-    if (attribute === null) {
+    if (attribute.length === 0) {
       // 属性 和标签一样 显示全部
       events.forEach((row: DocumentMethod) => {
         markdownString.appendMarkdown(`|${row.name}|${row.description}|${row.parameter}|\r`)
@@ -105,7 +105,7 @@ export const generator = {
     }
     return markdownString
   },
-  slots: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
+  slots: (document: ElDocument, tag: string, attribute: string, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const slots = document.slots || []
@@ -119,7 +119,7 @@ export const generator = {
       }
       markdownString.appendMarkdown('|---|---|\r')
     }
-    if (attribute === null) {
+    if (attribute.length === 0) {
       // 属性 和标签一样 显示全部
       slots.forEach((row: DocumentSlot) => {
         markdownString.appendMarkdown(`|${row.name}|${row.description}|\r`)
@@ -138,7 +138,7 @@ export const generator = {
     }
     return markdownString
   },
-  scopedSlots: (document: ElDocument, tag: string, attribute: string | null, language: string): MarkdownString => {
+  scopedSlots: (document: ElDocument, tag: string, attribute: string, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
     let markdownString: MarkdownString = new MarkdownString('', true)
     const scopedSlots = document.scopedSlots || []
@@ -152,7 +152,7 @@ export const generator = {
       }
       markdownString.appendMarkdown('|---|---|\r')
     }
-    if (attribute === null) {
+    if (attribute.length === 0) {
       // 属性 和标签一样 显示全部
       scopedSlots.forEach((row: DocumentScopedSlot) => {
         markdownString.appendMarkdown(`|${row.name}|${row.description}|\r`)

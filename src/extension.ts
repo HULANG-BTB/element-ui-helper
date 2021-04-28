@@ -1,7 +1,16 @@
 import { ExtensionContext } from 'vscode'
 import * as vscode from 'vscode'
 
-import { hoverProvider } from './hover-tips'
+import { ElementHoverProvier } from './hover-tips'
+
+export enum ExtensionLanguage {
+  cn = 'zh-CN',
+  en = 'en-US'
+}
+
+export interface ExtensionConfigutation {
+  language: ExtensionLanguage
+}
 
 export function activate(context: ExtensionContext): void {
   console.log('extension "element-ui-helper" is now active!')
@@ -16,7 +25,7 @@ export function activate(context: ExtensionContext): void {
   })
 
   // 注册hover提示
-  context.subscriptions.push(vscode.languages.registerHoverProvider(['vue'], hoverProvider))
+  context.subscriptions.push(vscode.languages.registerHoverProvider(['vue'], new ElementHoverProvier()))
 
   context.subscriptions.push(disposable)
 }
