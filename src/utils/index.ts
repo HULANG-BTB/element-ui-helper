@@ -173,7 +173,10 @@ export const generator = {
   }
 }
 
-export const toKebabCase = (str: string) => {
+export const toKebabCase = (str: string | undefined) => {
+  if (str === undefined) {
+    return ''
+  }
   var temp = str.replace(/[A-Z]/g, function (match) {
     return '-' + match.toLowerCase()
   })
