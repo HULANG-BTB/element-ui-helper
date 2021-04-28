@@ -127,21 +127,21 @@ const build = (dir) => {
           if (!outStream) {
             return
           }
-          outStream.write(`import { ElDocument } from "typings/document";` + os.EOL)
+          outStream.write(`import { ElDocument } from "@/document";` + os.EOL)
           if (document[key].attributes) {
-            outStream.write(`import { DocumentAttribute } from "typings/attribute";` + os.EOL)
+            outStream.write(`import { DocumentAttribute } from "@/document";` + os.EOL)
           }
           if (document[key].methods) {
-            outStream.write(`import { DocumentMethod } from "typings/method";` + os.EOL)
+            outStream.write(`import { DocumentMethod } from "@/document";` + os.EOL)
           }
           if (document[key].events) {
-            outStream.write(`import { DocumentEvent } from "typings/event";` + os.EOL)
+            outStream.write(`import { DocumentEvent } from "@/document";` + os.EOL)
           }
           if (document[key].slots) {
-            outStream.write(`import { DocumentSlot } from "typings/slot";` + os.EOL)
+            outStream.write(`import { DocumentSlot } from "@/document";` + os.EOL)
           }
           if (document[key].scopedSlots) {
-            outStream.write(`import { DocumentScopedSlot } from "typings/scoped-slot";` + os.EOL)
+            outStream.write(`import { DocumentScopedSlot } from "@/document";` + os.EOL)
           }
 
           if (document[key].attributes) {
