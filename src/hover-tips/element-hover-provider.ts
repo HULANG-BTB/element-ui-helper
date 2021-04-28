@@ -19,6 +19,8 @@ export class ElementHoverProvier implements HoverProvider {
     this._position = position
     this._token = token
 
+    // console.log(position.line, position.character)
+
     const tag: TagObject | undefined = this.getTag()
 
     if (!/^[E|e]l/.test(tag?.text || '')) {
@@ -47,8 +49,10 @@ export class ElementHoverProvier implements HoverProvider {
         txt = this._document.lineAt(line).text
       }
       tag = this.matchTag(this.tagReg, txt, line)
-
-      if (tag !== 'break') {
+      if (tag === 'break') {
+        return undefined
+      }
+      if (tag) {
         return <TagObject>tag
       }
       line--
@@ -73,6 +77,7 @@ export class ElementHoverProvier implements HoverProvider {
    */
   getHoverRange(attr: string): Range {
     const line = this._document.lineAt(this._position.line).text
+    console.log(this._position.line, line, attr)
     const start = line.indexOf(attr)
     const end = start + attr.length
     const range = new Range(this._position.line, start, this._position.line, end)
@@ -98,7 +103,7 @@ export class ElementHoverProvier implements HoverProvider {
         offset: this._document.offsetAt(new Position(line, match.index))
       })
     }
-    return arr.pop() || 'break'
+    return arr.pop() || ''
   }
 
   /**
@@ -162,12 +167,8 @@ export class ElementHoverProvier implements HoverProvider {
       // 当前是一个属性
       key = `${language}-${kebabCaseTag}-${kebabCaseAttr}`
     }
-    // 如果不存在实例 则尝试常见实例
-    if (this.instance[key] === undefined) {
-      this.instance[key] = this.createHoverInstance(language, kebabCaseTag, kebabCaseAttr, range)
-    }
 
-    return this.instance[key]
+    return this.createHoverInstance(language, kebabCaseTag, kebabCaseAttr, range)
   }
 
   createHoverInstance(language: ExtensionLanguage, tag: string, attr: string, range: Range): null | Hover {
