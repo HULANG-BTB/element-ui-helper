@@ -1,5 +1,5 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'command', description: "a command to be dispatched to Dropdown's `command` callback", type: 'string/number/object', value: '—', default: '—' },

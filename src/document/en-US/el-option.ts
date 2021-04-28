@@ -1,5 +1,5 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'value', description: 'value of option', type: 'string/number/object', value: '—', default: '—' },

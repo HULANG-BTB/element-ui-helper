@@ -1,7 +1,7 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
-import { DocumentEvent } from 'typings/event'
-import { DocumentSlot } from 'typings/slot'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
+import { DocumentEvent } from '@/document'
+import { DocumentSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'title', description: 'Title', type: 'String', value: '—', default: '—' },

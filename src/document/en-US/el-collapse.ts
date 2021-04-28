@@ -1,6 +1,6 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
-import { DocumentEvent } from 'typings/event'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
+import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'value / v-model', description: 'currently active panel', type: 'string (accordion mode) / array (non-accordion mode)', value: '—', default: '—' },

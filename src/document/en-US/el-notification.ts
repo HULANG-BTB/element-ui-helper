@@ -1,5 +1,5 @@
-import { ElDocument } from 'typings/document'
-import { DocumentMethod } from 'typings/method'
+import { ElDocument } from '@/document'
+import { DocumentMethod } from '@/document'
 
 export const methods: DocumentMethod[] = [{ name: 'close', description: 'close the Notification', parameter: '' }]
 

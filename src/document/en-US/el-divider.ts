@@ -1,5 +1,5 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'direction', description: "Set divider's direction", type: 'string', value: 'horizontal / vertical', default: 'horizontal' },

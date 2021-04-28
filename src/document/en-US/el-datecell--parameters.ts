@@ -1,5 +1,5 @@
-import { ElDocument } from 'typings/document'
-import { DocumentScopedSlot } from 'typings/scoped-slot'
+import { ElDocument } from '@/document'
+import { DocumentScopedSlot } from '@/document'
 
 export const scopedSlots: DocumentScopedSlot[] = [
   { name: 'date', description: 'date the cell represents' },

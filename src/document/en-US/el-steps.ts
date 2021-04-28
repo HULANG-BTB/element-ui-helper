@@ -1,5 +1,5 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'space', description: 'the spacing of each step, will be responsive if omitted. Supports percentage.', type: 'number / string', value: '—', default: '—' },

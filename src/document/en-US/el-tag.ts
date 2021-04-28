@@ -1,6 +1,6 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
-import { DocumentEvent } from 'typings/event'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
+import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'type', description: 'component type', type: 'string', value: 'success/info/warning/danger', default: '—' },

@@ -1,7 +1,7 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
-import { DocumentMethod } from 'typings/method'
-import { DocumentEvent } from 'typings/event'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
+import { DocumentMethod } from '@/document'
+import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'model', description: 'data of form component', type: 'object', value: '—', default: '—' },

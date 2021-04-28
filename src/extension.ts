@@ -1,16 +1,7 @@
 import { ExtensionContext } from 'vscode'
 import * as vscode from 'vscode'
 
-import { ElementHoverProvier } from './hover-tips'
-
-export enum ExtensionLanguage {
-  cn = 'zh-CN',
-  en = 'en-US'
-}
-
-export interface ExtensionConfigutation {
-  language: ExtensionLanguage
-}
+import { ElementHoverProvier } from './hover-tips/element-hover-provider'
 
 export function activate(context: ExtensionContext): void {
   console.log('extension "element-ui-helper" is now active!')

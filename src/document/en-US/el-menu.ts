@@ -1,6 +1,6 @@
-import { ElDocument } from 'typings/document'
-import { DocumentMethod } from 'typings/method'
-import { DocumentEvent } from 'typings/event'
+import { ElDocument } from '@/document'
+import { DocumentMethod } from '@/document'
+import { DocumentEvent } from '@/document'
 
 export const methods: DocumentMethod[] = [
   { name: 'open', description: 'open a specific sub-menu', parameter: 'index: index of the sub-menu to open' },

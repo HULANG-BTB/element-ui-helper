@@ -1,8 +1,8 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
-import { DocumentEvent } from 'typings/event'
-import { DocumentScopedSlot } from 'typings/scoped-slot'
-import { DocumentMethod } from 'typings/method'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
+import { DocumentEvent } from '@/document'
+import { DocumentScopedSlot } from '@/document'
+import { DocumentMethod } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {

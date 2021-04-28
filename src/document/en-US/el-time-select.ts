@@ -1,5 +1,5 @@
-import { DocumentAttribute } from 'typings/attribute'
-import { ElDocument } from 'typings/document'
+import { DocumentAttribute } from '@/document'
+import { ElDocument } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'Select Option', description: '-', type: '-', value: '-', default: '-' },

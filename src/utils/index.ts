@@ -1,8 +1,8 @@
-import { DocumentAttribute } from 'typings/attribute'
-import { ElDocument } from 'typings/document'
-import { DocumentMethod } from 'typings/method'
-import { DocumentScopedSlot } from 'typings/scoped-slot'
-import { DocumentSlot } from 'typings/slot'
+import { DocumentAttribute } from '@/document'
+import { ElDocument } from '@/document'
+import { DocumentMethod } from '@/document'
+import { DocumentScopedSlot } from '@/document'
+import { DocumentSlot } from '@/document'
 import { MarkdownString } from 'vscode'
 
 export const generator = {

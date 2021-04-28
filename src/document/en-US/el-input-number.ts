@@ -1,7 +1,7 @@
-import { ElDocument } from 'typings/document'
-import { DocumentAttribute } from 'typings/attribute'
-import { DocumentMethod } from 'typings/method'
-import { DocumentEvent } from 'typings/event'
+import { ElDocument } from '@/document'
+import { DocumentAttribute } from '@/document'
+import { DocumentMethod } from '@/document'
+import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   { name: 'value / v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
