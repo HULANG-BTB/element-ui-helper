@@ -188,11 +188,9 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     }
     const events: DocumentEvent[] = document[tag]?.events || []
     const likeTag = events.filter((evnet: DocumentEvent) => evnet.name.includes(prefix))
-    console.log(prefix)
-
     likeTag.forEach((event: DocumentEvent) => {
       const start = preText.lastIndexOf('@') + 1
-      const end = start + event.name.length
+      const end = start + prefix.length
       const startPos = new Position(this._position.line, start)
       const endPos = new Position(this._position.line, end)
       const range = new Range(startPos, endPos)
@@ -230,7 +228,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     const likeTag = attributes.filter((attribute: DocumentAttribute) => attribute.name.includes(prefix))
     likeTag.forEach((attribute: DocumentAttribute) => {
       const start = Math.max(preText.lastIndexOf(' '), preText.lastIndexOf(':')) + 1
-      const end = start + attribute.name.length
+      const end = start + prefix.length
       const startPos = new Position(this._position.line, start)
       const endPos = new Position(this._position.line, end)
       const range = new Range(startPos, endPos)
@@ -271,7 +269,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     }
     Object.keys(document).forEach((key) => {
       const start = preText.lastIndexOf('<') + 1
-      const end = start + key.length
+      const end = preText.length - start + 1
       const startPos = new Position(this._position.line, start)
       const endPos = new Position(this._position.line, end)
       const range = new Range(startPos, endPos)
