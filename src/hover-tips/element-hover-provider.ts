@@ -40,7 +40,7 @@ export class ElementHoverProvier implements HoverProvider {
    */
   getTag(): TagObject | undefined {
     let line = this._position.line
-    let tag: TagObject | string
+    let tag: TagObject | string | undefined
     let txt = this.getTextAfterPosition(this._position)
 
     // 向前搜索 最多十行 搜索标签
@@ -77,7 +77,6 @@ export class ElementHoverProvier implements HoverProvider {
    */
   getHoverRange(attr: string): Range {
     const line = this._document.lineAt(this._position.line).text
-    console.log(this._position.line, line, attr)
     const start = line.indexOf(attr)
     const end = start + attr.length
     const range = new Range(this._position.line, start, this._position.line, end)
@@ -90,7 +89,7 @@ export class ElementHoverProvier implements HoverProvider {
    * @param txt 待匹配字符
    * @param line 匹配行
    */
-  matchTag(reg: RegExp, txt: string, line: number): TagObject | string {
+  matchTag(reg: RegExp, txt: string, line: number): TagObject | string | undefined {
     let match: RegExpExecArray | null
     let arr: TagObject[] = []
 
@@ -103,7 +102,7 @@ export class ElementHoverProvier implements HoverProvider {
         offset: this._document.offsetAt(new Position(line, match.index))
       })
     }
-    return arr.pop() || ''
+    return arr.pop()
   }
 
   /**
