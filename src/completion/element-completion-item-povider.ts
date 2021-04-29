@@ -4,7 +4,7 @@ import { CompletionItemProvider, TextDocument, Position, CancellationToken, Prov
 import CnDocument from '../document/zh-CN'
 import EnDocument from '../document/en-US'
 import { ExtensionConfigutation, ExtensionLanguage } from '..'
-import { DocumentAttribute } from '@/document'
+import { DocumentAttribute, DocumentEvent, DocumentMethod, ElDocument } from '@/document'
 
 export class ElementCompletionItemProvider implements CompletionItemProvider<CompletionItem> {
   private _document!: TextDocument
@@ -22,7 +22,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
    */
   getPreTag(): TagObject | undefined {
     let line = this._position.line
-    let tag: TagObject | string
+    let tag: TagObject | string | undefined
     let txt = this.getTextBeforePosition(this._position)
 
     while (this._position.line - line < 10 && line >= 0) {
@@ -30,8 +30,10 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
         txt = this._document.lineAt(line).text
       }
       tag = this.matchTag(this.tagReg, txt, line)
-
-      if (tag !== 'break') {
+      if (tag === 'break') {
+        return undefined
+      }
+      if (tag) {
         return <TagObject>tag
       }
       line--
@@ -47,7 +49,6 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let end = this._position.character
     let start = txt.lastIndexOf(' ', end) + 1
     let parsedTxt = this._document.getText(new Range(this._position.line, start, this._position.line, end))
-
     return this.matchAttr(this.attrReg, parsedTxt)
   }
 
@@ -72,7 +73,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
    * @param txt 匹配文本
    * @param line 当前行
    */
-  matchTag(reg: RegExp, txt: string, line: number): TagObject | string {
+  matchTag(reg: RegExp, txt: string, line: number): TagObject | string | undefined {
     let match: RegExpExecArray | null
     let arr: TagObject[] = []
 
@@ -85,7 +86,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
         offset: this._document.offsetAt(new Position(line, match.index))
       })
     }
-    return arr.pop() || 'break'
+    return arr.pop()
   }
 
   /**
@@ -114,7 +115,16 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
    */
   isAttrStart(tag: TagObject | undefined) {
     const preText = this.getTextBeforePosition(this._position)
-    return tag && /[\ :@][\w-]$/.test(preText)
+    return tag && /\ :?[\w-]*$/.test(preText)
+  }
+
+  /**
+   * 是否为方法的开始
+   * @param tag 标签
+   */
+  isEventStart(tag: TagObject | undefined) {
+    const preText = this.getTextBeforePosition(this._position)
+    return tag && /\ \@[\w-]*$/.test(preText)
   }
 
   /**
@@ -151,7 +161,50 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let completionItems: CompletionItem[] = []
     const values = this.getAttrValues(tag, attr)
     values.forEach((value) => {
-      completionItems.push({ label: `${value}  ${tag}-${attr}`, kind: CompletionItemKind.Value, insertText: value })
+      if (value !== '—' && value !== '-') {
+        completionItems.push({
+          label: `${value}`,
+          sortText: `0${value}`,
+          detail: `${tag}-${attr}`,
+          kind: CompletionItemKind.Value,
+          insertText: value
+        })
+      }
+    })
+    return completionItems
+  }
+
+  getEventCompletionItems(tag: string): CompletionItem[] {
+    let completionItems: CompletionItem[] = []
+    const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
+    const language = config?.language || ExtensionLanguage.cn
+    let document: Record<string, ElDocument | undefined>
+    const preText = this.getTextBeforePosition(this._position)
+    const prefix = preText.replace(/.*@([\w-]*)$/, '$1')
+    if (language === ExtensionLanguage.en) {
+      document = EnDocument
+    } else {
+      document = CnDocument
+    }
+    const events: DocumentEvent[] = document[tag]?.events || []
+    const likeTag = events.filter((evnet: DocumentEvent) => evnet.name.includes(prefix))
+    console.log(prefix)
+
+    likeTag.forEach((event: DocumentEvent) => {
+      const start = preText.lastIndexOf('@') + 1
+      const end = start + event.name.length
+      const startPos = new Position(this._position.line, start)
+      const endPos = new Position(this._position.line, end)
+      const range = new Range(startPos, endPos)
+      completionItems.push({
+        label: `${event.name}`,
+        sortText: `0${event.name}`,
+        detail: `${tag} Event`,
+        documentation: event.description,
+        kind: CompletionItemKind.Value,
+        insertText: event.name,
+        range
+      })
     })
     return completionItems
   }
@@ -176,7 +229,20 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     const attributes: DocumentAttribute[] = document[tag].attributes || []
     const likeTag = attributes.filter((attribute: DocumentAttribute) => attribute.name.includes(prefix))
     likeTag.forEach((attribute: DocumentAttribute) => {
-      completionItems.push({ label: `${attribute.name}  ${tag}`, kind: CompletionItemKind.Value, insertText: attribute.name })
+      const start = Math.max(preText.lastIndexOf(' '), preText.lastIndexOf(':')) + 1
+      const end = start + attribute.name.length
+      const startPos = new Position(this._position.line, start)
+      const endPos = new Position(this._position.line, end)
+      const range = new Range(startPos, endPos)
+      completionItems.push({
+        label: `${attribute.name}`,
+        sortText: `0${attribute.name}`,
+        detail: `${tag} Attribute`,
+        documentation: attribute.description,
+        kind: CompletionItemKind.Value,
+        insertText: attribute.name,
+        range
+      })
     })
     return completionItems
   }
@@ -196,6 +262,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let completionItems: CompletionItem[] = []
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
+    const preText = this.getTextBeforePosition(this._position)
     let document: Record<string, any>
     if (language === ExtensionLanguage.en) {
       document = EnDocument
@@ -203,10 +270,19 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
       document = CnDocument
     }
     Object.keys(document).forEach((key) => {
-      if (key.includes(tag)) {
-        const insertValue = key.replace('el-', '')
-        completionItems.push({ label: `${key}  ElementUI`, kind: CompletionItemKind.Value, insertText: `${insertValue}></${key}>` })
-      }
+      const start = preText.lastIndexOf('<') + 1
+      const end = start + key.length
+      const startPos = new Position(this._position.line, start)
+      const endPos = new Position(this._position.line, end)
+      const range = new Range(startPos, endPos)
+      completionItems.push({
+        label: `${key}`,
+        sortText: `0${key}`,
+        detail: 'ElementUI Tag',
+        kind: CompletionItemKind.Value,
+        insertText: `${key}></${key}>`,
+        range
+      })
     })
     return completionItems
   }
@@ -227,17 +303,17 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let tag: TagObject | undefined = this.getPreTag()
     let attr = this.getPreAttr()
 
-    if (!/^[E|e]l/.test(tag?.text || '')) {
+    if (!tag || !/^[E|e]l/.test(tag.text || '')) {
       // 如果不是element的标签(E|el开头) 则返回 null 表示没有hover
       return null
-    }
-
-    // 如果是属性值的开始
-    if (tag && this.isAttrValueStart(tag, attr)) {
+    } else if (this.isAttrValueStart(tag, attr)) {
+      // 如果是属性值的开始
       return this.getAttrValueCompletionItems(tag.text, attr)
-    } else if (tag && this.isAttrStart(tag)) {
+    } else if (this.isEventStart(tag)) {
+      return this.getEventCompletionItems(tag.text)
+    } else if (this.isAttrStart(tag)) {
       return this.getAttrCompletionItems(tag.text)
-    } else if (tag && this.isTagStart()) {
+    } else if (this.isTagStart()) {
       return this.getTagCompletionItems(tag.text)
     }
 
