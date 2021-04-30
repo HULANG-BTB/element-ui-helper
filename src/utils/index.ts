@@ -5,6 +5,9 @@ import { DocumentScopedSlot } from '@/document'
 import { DocumentSlot } from '@/document'
 import { MarkdownString } from 'vscode'
 
+/**
+ * 文档提示生成 工具
+ */
 export const generator = {
   attributes: (document: ElDocument, tag: string, attribute: string, language: string): MarkdownString => {
     let isUndefined: boolean = true // 标记是否具有文档
@@ -173,6 +176,11 @@ export const generator = {
   }
 }
 
+/**
+ * 驼峰转横线
+ *
+ * @param str 待转换的串
+ */
 export const toKebabCase = (str: string | undefined) => {
   if (str === undefined) {
     return ''

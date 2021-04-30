@@ -174,6 +174,11 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     return completionItems
   }
 
+  /**
+   * 获取事件名称提示
+   *
+   * @param tag 标签
+   */
   getEventCompletionItems(tag: string): CompletionItem[] {
     let completionItems: CompletionItem[] = []
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
@@ -308,10 +313,13 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
       // 如果是属性值的开始
       return this.getAttrValueCompletionItems(tag.text, attr)
     } else if (this.isEventStart(tag)) {
+      // 优先判定事件
       return this.getEventCompletionItems(tag.text)
     } else if (this.isAttrStart(tag)) {
+      // 判断属性
       return this.getAttrCompletionItems(tag.text)
     } else if (this.isTagStart()) {
+      // 判断标签
       return this.getTagCompletionItems(tag.text)
     }
 

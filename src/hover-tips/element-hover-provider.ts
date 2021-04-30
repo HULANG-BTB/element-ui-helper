@@ -19,8 +19,6 @@ export class ElementHoverProvier implements HoverProvider {
     this._position = position
     this._token = token
 
-    // console.log(position.line, position.character)
-
     const tag: TagObject | undefined = this.getTag()
 
     if (!/^[E|e]l/.test(tag?.text || '')) {
@@ -28,8 +26,7 @@ export class ElementHoverProvier implements HoverProvider {
       return null
     }
 
-    let attr = this.getAttr()
-
+    const attr = this.getAttr()
     const range = this.getHoverRange(attr)
 
     return this.getHoverInstance(tag, attr, range)
@@ -132,6 +129,11 @@ export class ElementHoverProvier implements HoverProvider {
     return this._document.getText(range)
   }
 
+  /**
+   * 获取当前位置直到单词结束的内容
+   *
+   * @param position 文档位置
+   */
   getTextAfterPosition(position: Position): string {
     const wordRange = this._document.getWordRangeAtPosition(position)
     const start = new Position(position.line, 0)
@@ -146,30 +148,30 @@ export class ElementHoverProvier implements HoverProvider {
   }
 
   /**
+   * 获取Hover实例
    *
-   * @param tag
-   * @param attr
-   * @param range
+   * @param tag 标签
+   * @param attr 属性
+   * @param range 区域
    */
   getHoverInstance(tag: TagObject | undefined, attr: string, range: Range) {
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
 
-    let key = ''
     const kebabCaseTag = toKebabCase(tag?.text)
     const kebabCaseAttr = toKebabCase(attr)
-
-    if (kebabCaseTag.includes(kebabCaseAttr)) {
-      // 当前是一个标签
-      key = `${language}-${kebabCaseTag}`
-    } else {
-      // 当前是一个属性
-      key = `${language}-${kebabCaseTag}-${kebabCaseAttr}`
-    }
 
     return this.createHoverInstance(language, kebabCaseTag, kebabCaseAttr, range)
   }
 
+  /**
+   * 创建Hover实例
+   *
+   * @param language 语言
+   * @param tag 标签
+   * @param attr 属性
+   * @param range 范围
+   */
   createHoverInstance(language: ExtensionLanguage, tag: string, attr: string, range: Range): null | Hover {
     let document: Record<string, any>
     if (language === ExtensionLanguage.en) {
