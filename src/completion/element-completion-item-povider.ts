@@ -161,7 +161,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let completionItems: CompletionItem[] = []
     const values = this.getAttrValues(tag, attr)
     values.forEach((value) => {
-      if (value !== '—' && value !== '-') {
+      if (/\w+/.test(value)) {
         completionItems.push({
           label: `${value}`,
           sortText: `0${value}`,
