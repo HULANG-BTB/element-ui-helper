@@ -9,5 +9,5 @@ install:
   - yarn
 script:
   - yarn package
-addons:
-  artifacts: true
+after_success:
+  - ls ./
