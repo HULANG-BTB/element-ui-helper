@@ -7,7 +7,17 @@ before_install:
   - npm install yarn -g
 install:
   - yarn
+before_script:
+  - export TRAVIS_DIST=element-ui-helper-$TRAVIS_TAG.vsix
 script:
-  - yarn package
-after_success:
-  - ls ./
+  - yarn package -o $TRAVIS_DIST
+deploy:
+  provider: releases
+  token: $GITHUB_TOKEN
+  file: $TRAVIS_DIST
+  cleanup: false
+  on:
+    tags: true
+after_deploy:
+  - yarn changelog
+  - yarn vsce publish --packagePath $TRAVIS_DIST
