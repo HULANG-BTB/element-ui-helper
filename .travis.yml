@@ -10,6 +10,9 @@ install:
 before_script:
   - export TRAVIS_DIST=element-ui-helper-$TRAVIS_TAG.vsix
 script:
+  - yarn pretest
+  - yarn package
+before_deploy:
   - yarn package -o $TRAVIS_DIST
 deploy:
   provider: releases
