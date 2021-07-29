@@ -44,21 +44,21 @@ export const attributes: DocumentAttribute[] = [
     description: 'whether cookies are sent',
     type: 'boolean',
     value: '—',
-    default: "false"
+    default: 'false'
   },
   {
     name: 'show-file-list',
     description: 'whether to show the uploaded file list',
     type: 'boolean',
     value: '—',
-    default: "true"
+    default: 'true'
   },
   {
     name: 'drag',
     description: 'whether to activate drag and drop mode',
     type: 'boolean',
     value: '—',
-    default: "false"
+    default: 'false'
   },
   {
     name: 'accept',
@@ -129,7 +129,7 @@ export const attributes: DocumentAttribute[] = [
     description: 'whether thumbnail is displayed',
     type: 'boolean',
     value: '—',
-    default: "false"
+    default: 'false'
   },
   {
     name: 'file-list',
@@ -150,7 +150,7 @@ export const attributes: DocumentAttribute[] = [
     description: 'whether to auto upload file',
     type: 'boolean',
     value: '—',
-    default: "true"
+    default: 'true'
   },
   {
     name: 'http-request',
@@ -164,7 +164,7 @@ export const attributes: DocumentAttribute[] = [
     description: 'whether to disable upload',
     type: 'boolean',
     value: '—',
-    default: "false"
+    default: 'false'
   },
   {
     name: 'limit',

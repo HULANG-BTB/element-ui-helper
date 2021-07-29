@@ -1,5 +1,18 @@
 import { TagObject } from '@/hover-tips'
-import { CompletionItemProvider, TextDocument, Position, CancellationToken, ProviderResult, Range, CompletionItem, CompletionContext, CompletionList, CompletionItemKind, workspace,SnippetString } from 'vscode'
+import {
+  CompletionItemProvider,
+  TextDocument,
+  Position,
+  CancellationToken,
+  ProviderResult,
+  Range,
+  CompletionItem,
+  CompletionContext,
+  CompletionList,
+  CompletionItemKind,
+  workspace,
+  SnippetString
+} from 'vscode'
 
 import CnDocument from '../document/zh-CN'
 import EnDocument from '../document/en-US'
@@ -283,13 +296,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
         sortText: `0${key}`,
         detail: 'ElementUI Tag',
         kind: CompletionItemKind.Value,
-        insertText: 
-          new SnippetString()
-          .appendText(`${key}`)
-          .appendTabstop()
-          .appendText('>')
-          .appendTabstop()
-          .appendText(`</${key}>`),
+        insertText: new SnippetString().appendText(`${key}`).appendTabstop().appendText('>').appendTabstop().appendText(`</${key}>`),
         range
       })
     })
