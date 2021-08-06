@@ -18,6 +18,9 @@
   <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
     <img src="https://www.travis-ci.com/HULANG-BTB/element-ui-helper.svg?branch=master">
   </a>
+  <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
+    <img alt="Visual Studio Marketplace Rating (Stars)" src="https://img.shields.io/visual-studio-marketplace/stars/oibit.element-ui-helper">
+  </a>
   <br>
 </p>
 
