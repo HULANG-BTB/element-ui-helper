@@ -15,6 +15,9 @@
   <a href="https://github.com/HULANG-BTB/element-ui-helper/blob/master/LICENSE.MD">
     <img src="https://img.shields.io/github/license/HULANG-BTB/element-ui-helper">
   </a>
+  <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
+    <img src="https://www.travis-ci.com/HULANG-BTB/element-ui-helper.svg?branch=master">
+  </a>
   <br>
 </p>
 
@@ -36,7 +39,7 @@ The only step to use this extension is moving your cursor to Element-UI tag or p
 
 ## Support
 
-* Vue
+- Vue
 
 ## Contribution
 
@@ -47,4 +50,3 @@ If you want to help improve this project, Please fork and initiate. a pull reque
 ![https://img.shields.io/github/license/HULANG-BTB/element-ui-helper](https://img.shields.io/github/license/HULANG-BTB/element-ui-helper)
 
 ## **Enjoy yourself!**
-
