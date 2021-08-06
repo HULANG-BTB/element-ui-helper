@@ -21,6 +21,9 @@
   <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
     <img alt="Visual Studio Marketplace Rating (Stars)" src="https://img.shields.io/visual-studio-marketplace/stars/oibit.element-ui-helper">
   </a>
+  <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
+  <img alt="Visual Studio Marketplace Last Updated" src="https://img.shields.io/visual-studio-marketplace/last-updated/oibit.element-ui-helper">
+  </a>
   <br>
 </p>
 
