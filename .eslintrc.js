@@ -17,7 +17,7 @@ module.exports = {
     eqeqeq: 'warn',
     'no-throw-literal': 'warn',
     semi: 'off',
-    'no-unused-vars': 'warn'
+    'no-unused-vars': ['error', { vars: 'all', args: 'none', ignoreRestSiblings: false }]
   },
   ignorePatterns: ['**/*.d.ts']
 }

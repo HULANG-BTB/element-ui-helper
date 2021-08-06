@@ -16,7 +16,7 @@ import {
 
 import { localDocument } from '@/document'
 import { ExtensionConfigutation, ExtensionLanguage } from '..'
-import { DocumentAttribute, DocumentEvent, DocumentMethod, ElDocument } from '@/document'
+import { DocumentAttribute, DocumentEvent } from '@/document'
 
 export class ElementCompletionItemProvider implements CompletionItemProvider<CompletionItem> {
   private _document!: TextDocument
@@ -89,7 +89,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let match: RegExpExecArray | null
     let arr: TagObject[] = []
 
-    if (/<\/?[-\w]+[^<>]*>[\s\w]*<?\s*[\w-]*$/.test(txt) || (this._position.line === line && (/^\s*[^<]+\s*>[^<\/>]*$/.test(txt) || /[^<>]*<$/.test(txt[txt.length - 1])))) {
+    if (/<\/?[-\w]+[^<>]*>[\s\w]*<?\s*[\w-]*$/.test(txt) || (this._position.line === line && (/^\s*[^<]+\s*>[^</>]*$/.test(txt) || /[^<>]*<$/.test(txt[txt.length - 1])))) {
       return 'break'
     }
     while ((match = reg.exec(txt))) {
@@ -127,7 +127,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
    */
   isAttrStart(tag: TagObject | undefined) {
     const preText = this.getTextBeforePosition(this._position)
-    return tag && /\ :?[\w-]*$/.test(preText)
+    return tag && / :?[\w-]*$/.test(preText)
   }
 
   /**
@@ -136,7 +136,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
    */
   isEventStart(tag: TagObject | undefined) {
     const preText = this.getTextBeforePosition(this._position)
-    return tag && /\ \@[\w-]*$/.test(preText)
+    return tag && / @[\w-]*$/.test(preText)
   }
 
   /**
@@ -154,7 +154,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     if (!attribute) {
       return []
     }
-    const values = attribute.value.split(/[,\/\\]/).map((item) => item.trim())
+    const values = attribute.value.split(/[,/\\]/).map((item) => item.trim())
     return values
   }
 
