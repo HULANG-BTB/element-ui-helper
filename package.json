@@ -44,18 +44,19 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "yarn run build",
+    "watch": "yarn rollup --config ./rollup.config.js -w",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src",
     "test": "node ./out/test/runTest.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "commit": "git-cz",
     "docs": "node ./src/document/document-builder.js",
-    "package": "vsce package"
+    "package": "vsce package",
+    "build": "yarn rollup --config ./rollup.config.js"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/glob": "^7.1.3",
     "@types/mocha": "^8.0.4",
     "@types/node": "^12.11.7",
@@ -70,6 +71,9 @@
     "lint-staged": "^11.1.1",
     "mocha": "^8.2.1",
     "prettier": "^2.2.1",
+    "rollup": "^2.56.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.1.3",
     "vsce": "^1.96.1",
     "vscode-test": "^1.5.0",
