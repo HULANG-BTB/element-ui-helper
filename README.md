@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/github/license/HULANG-BTB/element-ui-helper">
   </a>
   <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
-    <img src="https://www.travis-ci.com/HULANG-BTB/element-ui-helper.svg?branch=master">
+    <img alt="Travis (.com) branch" src="https://img.shields.io/travis/com/HULANG-BTB/element-ui-helper/master">
   </a>
   <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
     <img alt="Visual Studio Marketplace Rating (Stars)" src="https://img.shields.io/visual-studio-marketplace/stars/oibit.element-ui-helper">
