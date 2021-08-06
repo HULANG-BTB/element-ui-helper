@@ -7,7 +7,7 @@ import { DocumentScopedSlot } from '@/document'
 import { DocumentSlot } from '@/document'
 
 export class HoverDocumentGenerator {
-  static instance: HoverDocumentGenerator | null
+  static instance: HoverDocumentGenerator
 
   /**
    * 生成属性文档表格
@@ -259,7 +259,7 @@ export class HoverDocumentGenerator {
       attributes.forEach((row: DocumentAttribute) => {
         let str = '|'
         keys.forEach((key) => {
-          str += row[key]
+          str += `${row[key]}|`
         })
         str += '\r'
         markdownString.appendMarkdown(str)
@@ -285,32 +285,32 @@ export class HoverDocumentGenerator {
    * @memberof HoverDocumentGenerator
    */
   generate<T extends BaseDocument>(document: T, key: string, tag: string, attr: string, language: ExtensionLanguage): MarkdownString {
-    let markdownString: MarkdownString
+    let markdownString: MarkdownString = new MarkdownString('')
     switch (key) {
       case 'attributes':
-        markdownString = this.generateAttribute(document, tag, attr, language)
+        markdownString = this.generateAttribute<T>(document, tag, attr, language)
         break
       case 'methods':
-        markdownString = this.generateMethods(document, tag, attr, language)
+        markdownString = this.generateMethods<T>(document, tag, attr, language)
         break
       case 'events':
-        markdownString = this.generateEvents(document, tag, attr, language)
+        markdownString = this.generateEvents<T>(document, tag, attr, language)
         break
       case 'slots':
-        markdownString = this.generateSlots(document, tag, attr, language)
+        markdownString = this.generateSlots<T>(document, tag, attr, language)
         break
       case 'scopedSlots':
-        markdownString = this.generateScopedSlots(document, tag, attr, language)
+        markdownString = this.generateScopedSlots<T>(document, tag, attr, language)
         break
       default:
         // 生成其他文档时 属性为key
-        markdownString = this.generateOther(document, tag, key, language)
+        markdownString = this.generateOther<T>(document, tag, key, language)
     }
     return markdownString
   }
 
   static getInstance(): HoverDocumentGenerator {
-    if (this.instance === null) {
+    if (!this.instance) {
       this.instance = new HoverDocumentGenerator()
     }
     return this.instance
