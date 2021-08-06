@@ -1,5 +1,9 @@
 module.exports = {
   root: true,
+  extends: 'eslint:recommended',
+  env: {
+    node: true
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 6,
@@ -12,7 +16,8 @@ module.exports = {
     curly: 'warn',
     eqeqeq: 'warn',
     'no-throw-literal': 'warn',
-    semi: 'off'
+    semi: 'off',
+    'no-unused-vars': 'warn'
   },
   ignorePatterns: ['**/*.d.ts']
 }

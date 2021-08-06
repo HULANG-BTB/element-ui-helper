@@ -28,7 +28,7 @@ const build = (dir) => {
           return
         }
         if (line.includes('Attributes')) {
-          filename = 'el-' + line.replace(/#/g, '').replace('Attributes', '').trim().replace(/\ /g, '-').toLocaleLowerCase()
+          filename = 'el-' + line.replace(/#/g, '').replace('Attributes', '').trim().replace(/ /g, '-').toLocaleLowerCase()
           if (filename.length === 3) {
             filename = 'el-' + doc.substr(0, doc.length - 3)
           }
@@ -37,7 +37,7 @@ const build = (dir) => {
           return
         }
         if (line.includes('Events') && line.includes('###')) {
-          filename = 'el-' + line.replace(/#/g, '').replace('Events', '').trim().replace(/\ /g, '-').toLocaleLowerCase()
+          filename = 'el-' + line.replace(/#/g, '').replace('Events', '').trim().replace(/ /g, '-').toLocaleLowerCase()
           if (filename.length === 3) {
             filename = 'el-' + doc.substr(0, doc.length - 3)
           }
@@ -46,7 +46,7 @@ const build = (dir) => {
           return
         }
         if (line.includes('Methods')) {
-          filename = 'el-' + line.replace(/#/g, '').replace('Methods', '').trim().replace(/\ /g, '-').toLocaleLowerCase()
+          filename = 'el-' + line.replace(/#/g, '').replace('Methods', '').trim().replace(/ /g, '-').toLocaleLowerCase()
           if (filename.length === 3) {
             filename = 'el-' + doc.substr(0, doc.length - 3)
           }
@@ -55,7 +55,7 @@ const build = (dir) => {
           return
         }
         if (line.includes('Scoped Slot')) {
-          filename = 'el-' + line.replace(/#/g, '').replace('Scoped Slot', '').trim().replace(/\ /g, '-').toLocaleLowerCase()
+          filename = 'el-' + line.replace(/#/g, '').replace('Scoped Slot', '').trim().replace(/ /g, '-').toLocaleLowerCase()
           if (filename.length === 3) {
             filename = 'el-' + doc.substr(0, doc.length - 3)
           }
@@ -64,7 +64,7 @@ const build = (dir) => {
           return
         }
         if (line.includes('Slot')) {
-          filename = 'el-' + line.replace(/#/g, '').replace('Slots', '').replace('Slot', '').trim().replace(/\ /g, '-').toLocaleLowerCase()
+          filename = 'el-' + line.replace(/#/g, '').replace('Slots', '').replace('Slot', '').trim().replace(/ /g, '-').toLocaleLowerCase()
           if (filename.length === 3) {
             filename = 'el-' + doc.substr(0, doc.length - 3)
           }
@@ -73,7 +73,7 @@ const build = (dir) => {
           return
         }
         if (flag && filename) {
-          arr = line
+          const arr = line
             .trim()
             .split('|')
             .map((item) => item.trim())

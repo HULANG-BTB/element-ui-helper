@@ -48,7 +48,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
-    "lint": "eslint src --ext ts & prettier -w ./src",
+    "lint": "eslint src",
     "test": "node ./out/test/runTest.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "commit": "git-cz",
@@ -86,7 +86,7 @@
   "lint-staged": {
     "*.{ts,js}": [
       "prettier --write",
-      "eslint lint"
+      "eslint"
     ]
   }
 }

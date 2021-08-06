@@ -90,7 +90,7 @@ export class ElementHoverProvier implements HoverProvider {
     let match: RegExpExecArray | null
     let arr: TagObject[] = []
 
-    if (/<\/?[-\w]+[^<>]*>[\s\w]*<?\s*[\w-]*$/.test(txt) || (this._position.line === line && (/^\s*[^<]+\s*>[^<\/>]*$/.test(txt) || /[^<>]*<$/.test(txt[txt.length - 1])))) {
+    if (/<\/?[-\w]+[^<>]*>[\s\w]*<?\s*[\w-]*$/.test(txt) || (this._position.line === line && (/^\s*[^<]+\s*>[^</>]*$/.test(txt) || /[^<>]*<$/.test(txt[txt.length - 1])))) {
       return 'break'
     }
     while ((match = reg.exec(txt))) {
