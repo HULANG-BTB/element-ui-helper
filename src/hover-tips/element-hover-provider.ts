@@ -1,8 +1,8 @@
 import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResult, Hover, workspace, MarkdownString, Range } from 'vscode'
 
 import { localDocument } from '@/document'
-
-import { generator, toKebabCase } from '../utils'
+import { HoverDocumentGenerator } from '@/utils/document-generator'
+import { toKebabCase } from '../utils'
 import { ExtensionConfigutation, ExtensionLanguage } from '../'
 import { TagObject } from '.'
 
@@ -181,7 +181,7 @@ export class ElementHoverProvier implements HoverProvider {
       const tagDocument = document[tag]
       const hoverMarkdownStrings: MarkdownString[] = []
       Object.keys(tagDocument).forEach((key: string) => {
-        const hoverMarkdownString: MarkdownString = generator[key]?.(tagDocument, tag, attr, language)
+        const hoverMarkdownString: MarkdownString = HoverDocumentGenerator.getInstance().generate(document, key, tag, attr, language)
         if (hoverMarkdownString) {
           hoverMarkdownStrings.push(hoverMarkdownString)
         }
