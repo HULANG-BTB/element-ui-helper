@@ -17,7 +17,7 @@ export default [
     },
     sourcemap: true,
     plugins: [
-      // terser(),
+      terser(),
       nodeResolve(),
       typescript({
         tsconfigOverride: {
