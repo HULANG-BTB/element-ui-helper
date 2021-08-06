@@ -1,3 +1,4 @@
+import { ExtensionLanguage } from '../'
 export interface DocumentAttribute {
   // 参数名称
   name: string
@@ -44,4 +45,14 @@ export interface ElDocument {
   methods?: DocumentMethod[]
   scopedSlots?: DocumentScopedSlot[]
   slots?: DocumentSlot[]
+}
+
+export type LocalDocument = Record<string, Record<string, any>>
+
+import CnDocument from './zh-CN'
+import EnDocument from './en-US'
+
+export const localDocument: LocalDocument = {
+  [ExtensionLanguage.en]: EnDocument,
+  [ExtensionLanguage.cn]: CnDocument
 }

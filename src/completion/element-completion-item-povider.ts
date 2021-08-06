@@ -14,8 +14,7 @@ import {
   SnippetString
 } from 'vscode'
 
-import CnDocument from '../document/zh-CN'
-import EnDocument from '../document/en-US'
+import { localDocument } from '@/document'
 import { ExtensionConfigutation, ExtensionLanguage } from '..'
 import { DocumentAttribute, DocumentEvent, DocumentMethod, ElDocument } from '@/document'
 
@@ -149,12 +148,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
   getAttrValues(tag: string, attr: string): string[] {
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
-    let document: Record<string, any>
-    if (language === ExtensionLanguage.en) {
-      document = EnDocument
-    } else {
-      document = CnDocument
-    }
+    const document: Record<string, any> = localDocument[language]
     const attributes: DocumentAttribute[] = document[tag].attributes || []
     const attribute: DocumentAttribute | undefined = attributes.find((attribute) => attribute.name === attr)
     if (!attribute) {
@@ -196,14 +190,9 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let completionItems: CompletionItem[] = []
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
-    let document: Record<string, ElDocument | undefined>
+    const document: Record<string, any> = localDocument[language]
     const preText = this.getTextBeforePosition(this._position)
     const prefix = preText.replace(/.*@([\w-]*)$/, '$1')
-    if (language === ExtensionLanguage.en) {
-      document = EnDocument
-    } else {
-      document = CnDocument
-    }
     const events: DocumentEvent[] = document[tag]?.events || []
     const likeTag = events.filter((evnet: DocumentEvent) => evnet.name.includes(prefix))
     likeTag.forEach((event: DocumentEvent) => {
@@ -234,14 +223,9 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     let completionItems: CompletionItem[] = []
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
-    let document: Record<string, any>
+    const document: Record<string, any> = localDocument[language]
     const preText = this.getTextBeforePosition(this._position)
     const prefix = preText.replace(/.*[\s@:]/g, '')
-    if (language === ExtensionLanguage.en) {
-      document = EnDocument
-    } else {
-      document = CnDocument
-    }
     const attributes: DocumentAttribute[] = document[tag].attributes || []
     const likeTag = attributes.filter((attribute: DocumentAttribute) => attribute.name.includes(prefix))
     likeTag.forEach((attribute: DocumentAttribute) => {
@@ -279,12 +263,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
     const preText = this.getTextBeforePosition(this._position)
-    let document: Record<string, any>
-    if (language === ExtensionLanguage.en) {
-      document = EnDocument
-    } else {
-      document = CnDocument
-    }
+    const document: Record<string, any> = localDocument[language]
     Object.keys(document).forEach((key) => {
       const start = preText.lastIndexOf('<') + 1
       const end = preText.length - start + 1

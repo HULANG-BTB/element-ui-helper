@@ -1,6 +1,6 @@
 import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResult, Hover, workspace, MarkdownString, Range } from 'vscode'
-import CnDocument from '../document/zh-CN'
-import EnDocument from '../document/en-US'
+
+import { localDocument } from '@/document'
 
 import { generator, toKebabCase } from '../utils'
 import { ExtensionConfigutation, ExtensionLanguage } from '../'
@@ -173,12 +173,7 @@ export class ElementHoverProvier implements HoverProvider {
    * @param range 范围
    */
   createHoverInstance(language: ExtensionLanguage, tag: string, attr: string, range: Range): null | Hover {
-    let document: Record<string, any>
-    if (language === ExtensionLanguage.en) {
-      document = EnDocument
-    } else {
-      document = CnDocument
-    }
+    let document: Record<string, any> = localDocument[language]
     if (tag === attr) {
       attr = ''
     }
