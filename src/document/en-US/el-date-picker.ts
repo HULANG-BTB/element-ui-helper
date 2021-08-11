@@ -39,41 +39,7 @@ export const attributes: DocumentAttribute[] = [
   { name: 'unlink-panels', description: 'unlink two date-panels in range-picker', type: 'boolean', value: '—', default: 'false' },
   { name: 'prefix-icon', description: 'Custom prefix icon class', type: 'string', value: '—', default: 'el-icon-date' },
   { name: 'clear-icon', description: 'Custom clear icon class', type: 'string', value: '—', default: 'el-icon-circle-close' },
-  { name: 'validate-event', description: 'whether to trigger form validation', type: 'boolean', value: '-', default: 'true' },
-  {
-    name: 'Shortcuts',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
-  },
-  { name: 'disabledDate', description: 'a function determining if a date is disabled with that date as its parameter. Should return a Boolean', type: 'function', value: '—', default: '—' },
-  { name: 'cellClassName', description: 'set custom className', type: 'Function(Date)', value: '—', default: '—' },
-  { name: 'firstDayOfWeek', description: 'first day of week', type: 'Number', value: '1 to 7', default: '7' },
-  {
-    name: 'onPick',
-    description: 'a callback that triggers when the selected date is changed. Only for `daterange` and `datetimerange`.',
-    type: 'Function({ maxDate, minDate })',
-    value: '-',
-    default: '-'
-  },
-  {
-    name: 'Picker Option',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
-  },
-  { name: 'Attribute', description: 'Description', type: 'Type', value: 'Accepted Values', default: 'Default' },
-  { name: 'text', description: 'title of the shortcut', type: 'string', value: '—', default: '—' },
-  {
-    name: 'onClick',
-    description:
-      "callback function, triggers when the shortcut is clicked, with the `vm` as its parameter. You can change the picker value by emitting the `pick` event. Example: `vm.$emit('pick', new Date())`",
-    type: 'function',
-    value: '—',
-    default: '—'
-  }
+  { name: 'validate-event', description: 'whether to trigger form validation', type: 'boolean', value: '-', default: 'true' }
 ]
 
 export const methods: DocumentMethod[] = [{ name: 'focus', description: 'focus the Input component', parameter: '—' }]
@@ -86,6 +52,56 @@ export const events: DocumentEvent[] = [
 
 export const slots: DocumentSlot[] = [{ name: 'range-separator', description: 'custom range separator content' }]
 
-export const document: ElDocument = { attributes, methods, events, slots }
+export const pickerOptions: DocumentAttribute[] = [
+  {
+    name: 'shortcuts',
+    description: 'a { text, onClick } object array to set shortcut options, check the table below',
+    type: 'Object[]',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'disabledDate',
+    description: 'a function determining if a date is disabled with that date as its parameter. Should return a Boolean',
+    type: 'Function',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'cellClassName',
+    description: 'set custom className',
+    type: 'Function(Date)',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'firstDayOfWeek',
+    description: 'first day of week',
+    type: 'Number',
+    value: '1 到 7',
+    default: '7'
+  },
+  {
+    name: 'onPick',
+    description: 'a callback that triggers when the selected date is changed. Only for daterange and datetimerange.',
+    type: 'Function({ maxDate, minDate })',
+    value: '—',
+    default: '—'
+  }
+]
+
+export const shortcuts: DocumentAttribute[] = [
+  { name: 'text', description: 'title of the shortcut', type: 'string', value: '—', default: '—' },
+  {
+    name: 'onClick',
+    description:
+      "callback function, triggers when the shortcut is clicked, with the `vm` as its parameter. You can change the picker value by emitting the `pick` event. Example: `vm.$emit('pick', new Date())`",
+    type: 'function',
+    value: '—',
+    default: '—'
+  }
+]
+
+export const document: ElDocument = { attributes, methods, events, slots, pickerOptions, shortcuts }
 
 export default document

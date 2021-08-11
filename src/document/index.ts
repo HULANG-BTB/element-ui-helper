@@ -92,7 +92,10 @@ export interface BaseDocument {
  * @interface ElDocument
  * @extends {BaseDocument}
  */
-export interface ElDocument extends BaseDocument {}
+export interface ElDocument extends BaseDocument {
+  pickerOptions?: DocumentAttribute[]
+  shortcuts?: DocumentAttribute[]
+}
 
 /**
  * 本地化文档类型

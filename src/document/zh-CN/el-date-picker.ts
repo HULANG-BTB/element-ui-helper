@@ -164,14 +164,30 @@ export const attributes: DocumentAttribute[] = [
     type: 'boolean',
     value: '-',
     default: 'true'
+  }
+]
+
+export const methods: DocumentMethod[] = [{ name: 'focus', description: '使 input 获取焦点', parameter: '—' }]
+
+export const events: DocumentEvent[] = [
+  {
+    name: 'change',
+    description: '用户确认选定的值时触发',
+    parameter: '组件绑定值。格式与绑定值一致，可受 `value-format` 控制'
   },
   {
-    name: 'Picker Option',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
+    name: 'blur',
+    description: '当 input 失去焦点时触发',
+    parameter: '组件实例'
   },
+  {
+    name: 'focus',
+    description: '当 input 获得焦点时触发',
+    parameter: '组件实例'
+  }
+]
+
+export const pickerOptions: DocumentAttribute[] = [
   {
     name: 'shortcuts',
     description: '设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表',
@@ -202,18 +218,14 @@ export const attributes: DocumentAttribute[] = [
   },
   {
     name: 'onPick',
-    description: '选中日期后会执行的回调，只有当 `daterange` 或 `datetimerange` 才生效',
+    description: '选中日期后会执行的回调，只有当 daterange 或 datetimerange 才生效',
     type: 'Function({ maxDate, minDate })',
     value: '—',
     default: '—'
-  },
-  {
-    name: 'Shortcuts',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
-  },
+  }
+]
+
+export const shortcuts: DocumentAttribute[] = [
   {
     name: 'text',
     description: '标题文本',
@@ -230,26 +242,6 @@ export const attributes: DocumentAttribute[] = [
   }
 ]
 
-export const methods: DocumentMethod[] = [{ name: 'focus', description: '使 input 获取焦点', parameter: '—' }]
-
-export const events: DocumentEvent[] = [
-  {
-    name: 'change',
-    description: '用户确认选定的值时触发',
-    parameter: '组件绑定值。格式与绑定值一致，可受 `value-format` 控制'
-  },
-  {
-    name: 'blur',
-    description: '当 input 失去焦点时触发',
-    parameter: '组件实例'
-  },
-  {
-    name: 'focus',
-    description: '当 input 获得焦点时触发',
-    parameter: '组件实例'
-  }
-]
-
-export const document: ElDocument = { attributes, methods, events }
+export const document: ElDocument = { attributes, methods, events, pickerOptions, shortcuts }
 
 export default document
