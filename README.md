@@ -22,11 +22,16 @@
     <img alt="Visual Studio Marketplace Rating (Stars)" src="https://img.shields.io/visual-studio-marketplace/stars/oibit.element-ui-helper">
   </a>
   <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
-  <img alt="Visual Studio Marketplace Last Updated" src="https://img.shields.io/visual-studio-marketplace/last-updated/oibit.element-ui-helper">
+    <img alt="Visual Studio Marketplace Last Updated" src="https://img.shields.io/visual-studio-marketplace/last-updated/oibit.element-ui-helper">
+  </a>
+  <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
+    <img alt="Visual Studio Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/oibit.element-ui-helper">
+  </a>
+  <a href="https://github.com/HULANG-BTB/element-ui-helper.git">
+    <img alt="Visual Studio Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/oibit.element-ui-helper"/>
   </a>
   <br>
 </p>
-
 > Element-UI-Helper is a VS Code extension for Element-UI.
 
 Element-UI is a great library. More and more projects use it. So, For helping developer write more efficient by Element-UI, Element-UI-Helper is born.This is not an official project, but all the documents are from the official website.
