@@ -44,34 +44,7 @@ export const attributes: DocumentAttribute[] = [
   { name: 'name', description: 'same as `name` in native input', type: 'string', value: '—', default: '—' },
   { name: 'unlink-panels', description: 'unllink two date-panels in range-picker', type: 'boolean', value: '—', default: 'false' },
   { name: 'prefix-icon', description: 'Custom prefix icon class', type: 'string', value: '—', default: 'el-icon-date' },
-  { name: 'clear-icon', description: 'Custom clear icon class', type: 'string', value: '—', default: 'el-icon-circle-close' },
-  {
-    name: 'Picker Options',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
-  },
-  { name: 'shortcuts', description: 'a { text, onClick } object array to set shortcut options, check the table below', type: 'object[]', value: '—', default: '—' },
-  { name: 'disabledDate', description: 'a function determining if a date is disabled with that date as its parameter. Should return a Boolean', type: 'function', value: '—', default: '—' },
-  { name: 'cellClassName', description: 'set custom className', type: 'Function(Date)', value: '—', default: '—' },
-  { name: 'firstDayOfWeek', description: 'first day of week', type: 'Number', value: '1 to 7', default: '7' },
-  {
-    name: 'Shortcuts',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
-  },
-  { name: 'text', description: 'title of the shortcut', type: 'string', value: '—', default: '—' },
-  {
-    name: 'onClick',
-    description:
-      "callback function, triggers when the shortcut is clicked, with the `vm` as its parameter. You can change the picker value by emitting the `pick` event. Example: `vm.$emit('pick', new Date())`",
-    type: 'function',
-    value: '—',
-    default: '—'
-  }
+  { name: 'clear-icon', description: 'Custom clear icon class', type: 'string', value: '—', default: 'el-icon-circle-close' }
 ]
 
 export const methods: DocumentMethod[] = [{ name: 'focus', description: 'focus the Input component', parameter: '—' }]
@@ -82,6 +55,61 @@ export const events: DocumentEvent[] = [
   { name: 'focus', description: 'triggers when Input focuses', parameter: 'component instance' }
 ]
 
-export const document: ElDocument = { attributes, methods, events }
+export const pickerOptions: DocumentAttribute[] = [
+  {
+    name: 'selectableRange',
+    description: "available time range, e.g.'18:30:00 - 20:30:00'or['09:30:00 - 12:00:00', '14:30:00 - 18:30:00']",
+    type: 'string / array',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'format',
+    description: 'format of the picker',
+    type: 'string',
+    value: 'hour HH, minute mm, second ss, AM/PM A',
+    default: "'HH:mm:ss'"
+  }
+]
+
+export const selectOptions: DocumentAttribute[] = [
+  {
+    name: 'start',
+    description: 'start time',
+    type: 'string',
+    value: '—',
+    default: '09:00'
+  },
+  {
+    name: 'end',
+    description: 'end time',
+    type: 'string',
+    value: '—',
+    default: '18:00'
+  },
+  {
+    name: 'step',
+    description: 'time step',
+    type: 'string',
+    value: '—',
+    default: '00:30'
+  },
+  {
+    name: 'minTime',
+    description: 'minimum time, any time before this time will be disabled',
+    type: 'string',
+    value: '—',
+    default: '00:00'
+  },
+  {
+    name: 'maxTime',
+    description: 'maximum time, any time after this time will be disabled',
+    type: 'string',
+    value: '—',
+    default: '—'
+  }
+]
+
+export const document: ElDocument = { attributes, methods, events, pickerOptions, selectOptions }
 
 export default document
