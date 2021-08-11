@@ -12,7 +12,6 @@ export class ElementHoverProvier implements HoverProvider {
   private _token!: CancellationToken
   private tagReg: RegExp = /<([\w-]+)\s*/g
   private attrReg: RegExp = /(?:\(|\s*)([\w-]+)=?/
-  private instance: Record<string, null | undefined | Hover> = {}
 
   provideHover(document: TextDocument, position: Position, token: CancellationToken): ProviderResult<Hover> {
     this._document = document
