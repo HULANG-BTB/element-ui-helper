@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.3.1...v1.3.0) (2021-08-11)
+
+
+
+## [1.3.1](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.3.0...v1.3.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **el-date-picker:** lose the picker options document ([4d98ca8](https://github.com/HULANG-BTB/element-ui-helper/commit/4d98ca84172ec24b73238e78577a09ab99537645))
+* **el-datetime-picker:** lost picker options and select options ([7782855](https://github.com/HULANG-BTB/element-ui-helper/commit/7782855f841391d14f95b9871a5ea317a72f330d))
+
+
+
 # [1.3.0](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.2.1...v1.3.0) (2021-07-26)
 
 
