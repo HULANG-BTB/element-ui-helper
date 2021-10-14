@@ -3,8 +3,8 @@ import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: '**percentage**',
-    description: '**百分比（必填）**',
+    name: 'percentage',
+    description: '百分比（必填）',
     type: 'number',
     value: '0-100',
     default: '0'
