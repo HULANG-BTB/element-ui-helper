@@ -179,14 +179,10 @@ export const attributes: DocumentAttribute[] = [
     type: 'Function(draggingNode, dropNode, type)',
     value: '—',
     default: '—'
-  },
-  {
-    name: 'Props',
-    description: '-',
-    type: '-',
-    value: '-',
-    default: '-'
-  },
+  }
+]
+
+export const props: DocumentAttribute[] = [
   {
     name: 'label',
     description: '指定节点标签为节点对象的某个属性值',
@@ -380,6 +376,6 @@ export const events: DocumentEvent[] = [
 
 export const scopedSlots: DocumentScopedSlot[] = [{ name: '—', description: '自定义树节点的内容，参数为 { node, data }' }]
 
-export const document: ElDocument = { attributes, events, scopedSlots, methods }
+export const document: ElDocument = { attributes, events, scopedSlots, methods, props }
 
 export default document
