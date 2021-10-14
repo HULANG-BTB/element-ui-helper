@@ -2,7 +2,6 @@ import { ElDocument } from '@/document'
 import { DocumentAttribute } from '@/document'
 import { DocumentMethod } from '@/document'
 import { DocumentEvent } from '@/document'
-import { DocumentSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {
@@ -230,13 +229,6 @@ export const events: DocumentEvent[] = [
   }
 ]
 
-export const slots: DocumentSlot[] = [
-  { name: 'prefix', description: '输入框头部内容，只对 `type="text"` 有效' },
-  { name: 'suffix', description: '输入框尾部内容，只对 `type="text"` 有效' },
-  { name: 'prepend', description: '输入框前置内容，只对 `type="text"` 有效' },
-  { name: 'append', description: '输入框后置内容，只对 `type="text"` 有效' }
-]
-
-export const document: ElDocument = { attributes, methods, events, slots }
+export const document: ElDocument = { attributes, methods, events }
 
 export default document
