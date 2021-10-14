@@ -77,7 +77,7 @@ export const attributes: DocumentAttribute[] = [
   },
   {
     name: 'type',
-    description: '显示类型',
+    description: '显示type',
     type: 'string',
     value: 'year/month/date/week/ datetime/datetimerange/daterange',
     default: 'date'
@@ -192,59 +192,52 @@ export const slots: DocumentSlot[] = [{ name: 'range-separator', description: '�
 
 export const pickerOptions: DocumentAttribute[] = [
   {
-    name: 'selectableRange',
-    description: "可选时间段，例如'18:30:00 - 20:30:00'或者传入数组['09:30:00 - 12:00:00', '14:30:00 - 18:30:00']",
-    type: 'string / array',
+    name: 'shortcuts',
+    description: '设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表',
+    type: 'Object[]',
     value: '—',
     default: '—'
   },
   {
-    name: 'format',
-    description: '时间格式化(TimePicker)',
-    type: 'string',
-    value: '小时：HH，分：mm，秒：ss，AM/PM A',
-    default: "'HH:mm:ss'"
+    name: 'disabledDate',
+    description: '设置禁用状态，name为当前日期，要求返回 Boolean',
+    type: 'Function',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'cellClassName',
+    description: '设置日期的 className',
+    type: 'Function(Date)',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'firstDayOfWeek',
+    description: '周起始日',
+    type: 'Number',
+    value: '1 到 7',
+    default: 7
   }
 ]
 
-export const selectOptions: DocumentAttribute[] = [
+export const shortcuts: DocumentAttribute[] = [
   {
-    name: 'start',
-    description: '开始时间',
+    name: 'text',
+    description: '标题文本',
     type: 'string',
     value: '—',
-    default: '09:00'
+    default: '—'
   },
   {
-    name: 'end',
-    description: '结束时间',
-    type: 'string',
-    value: '—',
-    default: '18:00'
-  },
-  {
-    name: 'step',
-    description: '间隔时间',
-    type: 'string',
-    value: '—',
-    default: '00:30'
-  },
-  {
-    name: 'minTime',
-    description: '最小时间，小于该时间的时间段将被禁用',
-    type: 'string',
-    value: '—',
-    default: '00:00'
-  },
-  {
-    name: 'maxTime',
-    description: '最大时间，大于该时间的时间段将被禁用',
-    type: 'string',
+    name: 'onClick',
+    description: "选中后的回调函数，参数是 vm，可通过触发 'pick' 事件设置选择器的值。例如 vm.$emit('pick', new Date())",
+    type: 'function',
     value: '—',
     default: '—'
   }
 ]
 
-export const document: ElDocument = { attributes, methods, events, slots, pickerOptions, selectOptions }
+export const document: ElDocument = { attributes, methods, events, slots, pickerOptions, shortcuts }
 
 export default document
