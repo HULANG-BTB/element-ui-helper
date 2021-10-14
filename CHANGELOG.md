@@ -1,3 +1,26 @@
+# [1.4.0](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.3.1...v1.4.0) (2021-10-14)
+
+
+### Features
+
+* **el-calendar:** 新增文档 ([1b99db5](https://github.com/HULANG-BTB/element-ui-helper/commit/1b99db59c1de2b3725ca3a33ceb9b00e7c960aaf))
+* **el-cascader-panel:** 更新文档 ([7a7b58d](https://github.com/HULANG-BTB/element-ui-helper/commit/7a7b58d0cd7da7003980c97be575e2dc960dd443))
+* **el-datetime-picker:** 更新文档 ([7b9078e](https://github.com/HULANG-BTB/element-ui-helper/commit/7b9078e512ec672d32ac088fb5b1ca2603c4856f))
+* **el-descriptions-item:** 新增文档 ([6fceafd](https://github.com/HULANG-BTB/element-ui-helper/commit/6fceafdd3585a9fbdb5c8b3bbfea1c9ac2227516))
+* **el-descriptions:** 新增文档 ([a4d0d70](https://github.com/HULANG-BTB/element-ui-helper/commit/a4d0d7010a73ac3e3a928c5c2fb756728118c797))
+* **el-dropdown:** 更新文档 ([aa4c4ed](https://github.com/HULANG-BTB/element-ui-helper/commit/aa4c4ed180da7a081491074b21a81924a75fe3b7))
+* **el-empty:** 新增文档 ([ca22096](https://github.com/HULANG-BTB/element-ui-helper/commit/ca2209638d19a61cffa49f1e2f590536efd6013a))
+* **el-form:** 更新文档 ([197af28](https://github.com/HULANG-BTB/element-ui-helper/commit/197af28bcaa575f8700df98af63721211fcd0a00))
+* **el-input:** 更新文档 ([f29e190](https://github.com/HULANG-BTB/element-ui-helper/commit/f29e190408490108bb048e70abe58dba530b11f6))
+* **el-progress:** 更新文档 ([fddbe5c](https://github.com/HULANG-BTB/element-ui-helper/commit/fddbe5cc82e2d930c996d5039691b5df1476f6da))
+* **el-result:** 新增文档 ([ec51959](https://github.com/HULANG-BTB/element-ui-helper/commit/ec51959c94d77720ad5fcb88eafcb9d3718160be))
+* **el-skeleton-item:** 新增文档 ([1a0d71f](https://github.com/HULANG-BTB/element-ui-helper/commit/1a0d71f77c0527d41d52397841a2ed3419bdee3c))
+* **el-skeleton:** 新增文档 ([4130751](https://github.com/HULANG-BTB/element-ui-helper/commit/4130751047690150c2be22f90c1f188a52a34809))
+* **el-time-picker:** 更新文档 ([8c73e28](https://github.com/HULANG-BTB/element-ui-helper/commit/8c73e286768ecaaec03b6a44fcb8a8875d8cada6))
+* **el-tree:** 更新文档 ([db0510f](https://github.com/HULANG-BTB/element-ui-helper/commit/db0510f8c879fd9d3c57505c2c2fee53e35caa30))
+
+
+
 ## [1.3.1](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.3.0...v1.3.1) (2021-08-11)
 
 
