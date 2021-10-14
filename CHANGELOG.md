@@ -1,3 +1,12 @@
+## [1.4.1](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.4.0...v1.4.1) (2021-10-14)
+
+
+### Bug Fixes
+
+* 新文档不显示 ([d56d0cf](https://github.com/HULANG-BTB/element-ui-helper/commit/d56d0cfbee3abc6a99c44e0b379b38e4a5763bd9))
+
+
+
 # [1.4.0](https://github.com/HULANG-BTB/element-ui-helper/compare/v1.3.1...v1.4.0) (2021-10-14)
 
 
