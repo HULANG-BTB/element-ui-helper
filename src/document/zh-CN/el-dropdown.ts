@@ -66,6 +66,13 @@ export const attributes: DocumentAttribute[] = [
     type: 'number',
     value: '—',
     default: '0'
+  },
+  {
+    name: 'disabled',
+    description: '是否禁用',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   }
 ]
 
