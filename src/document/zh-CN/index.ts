@@ -70,6 +70,13 @@ import eltooltip from './el-tooltip'
 import eltransfer from './el-transfer'
 import eltree from './el-tree'
 import elupload from './el-upload'
+import calendar from './el-calendar'
+import descriptionsItem from './el-descriptions-item'
+import descriptions from './el-descriptions'
+import empty from './el-empty'
+import result from './el-result'
+import skeletonItem from './el-skeleton-item'
+import skeleton from './el-skeleton'
 
 export default {
   'el-alert': elalert,
@@ -143,5 +150,12 @@ export default {
   'el-tooltip': eltooltip,
   'el-transfer': eltransfer,
   'el-tree': eltree,
-  'el-upload': elupload
+  'el-upload': elupload,
+  'el-calendar': calendar,
+  'el-descriptions-item': descriptionsItem,
+  'el-descriptions': descriptions,
+  'el-empty': empty,
+  'el-result': result,
+  'el-skeleton-item': skeletonItem,
+  'el-skeleton': skeleton
 }
