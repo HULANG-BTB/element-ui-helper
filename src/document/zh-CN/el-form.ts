@@ -106,7 +106,7 @@ export const methods: DocumentMethod[] = [
   {
     name: 'validateField',
     description: '对部分表单字段进行校验的方法',
-    parameter: 'Function(props: array \\'
+    parameter: 'Function(props: array | string, callback: Function(errorMessage: string))'
   },
   {
     name: 'resetFields',
@@ -116,7 +116,7 @@ export const methods: DocumentMethod[] = [
   {
     name: 'clearValidate',
     description: '移除表单项的校验结果。传入待移除的表单项的 prop 属性或者 prop 组成的数组，如不传则移除整个表单的校验结果',
-    parameter: 'Function(props: array \\'
+    parameter: 'Function(props: array | string)'
   }
 ]
 
