@@ -96,6 +96,7 @@ export interface ElDocument extends BaseDocument {
   pickerOptions?: DocumentAttribute[]
   shortcuts?: DocumentAttribute[]
   selectOptions?: DocumentAttribute[]
+  props?: DocumentAttribute[]
 }
 
 /**

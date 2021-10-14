@@ -57,32 +57,86 @@ export const slots: DocumentSlot[] = [
   }
 ]
 
-export const document: ElDocument = { attributes, methods, events, slots }
-
-const props = [
-  { name: 'expandTrigger', description: '次级菜单的展开方式' },
-  { name: 'multiple', description: '是否多选' },
-  { name: 'checkStrictly', description: '是否严格的遵守父子节点不互相关联' },
+export const props: DocumentAttribute[] = [
+  {
+    name: 'expandTrigger',
+    description: '次级菜单的展开方式',
+    type: 'string',
+    value: 'click / hover',
+    default: "'click'"
+  },
+  {
+    name: 'multiple',
+    description: '是否多选',
+    type: 'boolean',
+    value: '-',
+    default: false
+  },
+  {
+    name: 'checkStrictly',
+    description: '是否严格的遵守父子节点不互相关联',
+    type: 'boolean',
+    value: '-',
+    default: false
+  },
   {
     name: 'emitPath',
-    description: '在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值'
+    description: '在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值',
+    type: 'boolean',
+    value: '-',
+    default: true
   },
   {
     name: 'lazy',
-    description: '是否动态加载子节点，需与 lazyLoad 方法结合使用'
+    description: '是否动态加载子节点，需与 lazyLoad 方法结合使用',
+    type: 'boolean',
+    value: '-',
+    default: false
   },
   {
     name: 'lazyLoad',
-    description: '加载动态数据的方法，仅在 lazy 为 true 时有效'
+    description: '加载动态数据的方法，仅在 lazy 为 true 时有效',
+    type: 'function(node, resolve)，node为当前点击的节点，resolve为数据加载完成的回调(必须调用)',
+    value: '-',
+    default: '-'
   },
-  { name: 'value', description: '指定选项的值为选项对象的某个属性值' },
-  { name: 'label', description: '指定选项标签为选项对象的某个属性值' },
-  { name: 'children', description: '指定选项的子选项为选项对象的某个属性值' },
-  { name: 'disabled', description: '指定选项的禁用为选项对象的某个属性值' },
+  {
+    name: 'value',
+    description: '指定选项的值为选项对象的某个属性值',
+    type: 'string',
+    value: '—',
+    default: "'value'"
+  },
+  {
+    name: 'label',
+    description: '指定选项标签为选项对象的某个属性值',
+    type: 'string',
+    value: '—',
+    default: "'label'"
+  },
+  {
+    name: 'children',
+    description: '指定选项的子选项为选项对象的某个属性值',
+    type: 'string',
+    value: '—',
+    default: "'children'"
+  },
+  {
+    name: 'disabled',
+    description: '指定选项的禁用为选项对象的某个属性值',
+    type: 'string',
+    value: '—',
+    default: "'disabled'"
+  },
   {
     name: 'leaf',
-    description: '指定选项的叶子节点的标志位为选项对象的某个属性值'
+    description: '指定选项的叶子节点的标志位为选项对象的某个属性值',
+    type: 'string',
+    value: '—',
+    default: "'leaf'"
   }
 ]
+
+export const document: ElDocument = { attributes, methods, events, slots, props }
 
 export default document
