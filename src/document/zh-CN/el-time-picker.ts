@@ -166,6 +166,23 @@ export const events: DocumentEvent[] = [
   }
 ]
 
-export const document: ElDocument = { attributes, methods, events }
+const pickerOptions: DocumentAttribute[] = [
+  {
+    name: 'selectableRange',
+    description: '可选时间段，例如"18:30:00 - 20:30:00"或者传入数组["09:30:00 - 12:00:00", "14:30:00 - 18:30:00"]',
+    type: 'string / array',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'format',
+    description: '时间格式化(TimePicker)',
+    type: 'string',
+    value: 'HH,mm,ss,A',
+    default: '"HH:mm:ss"'
+  }
+]
+
+export const document: ElDocument = { attributes, methods, events, pickerOptions }
 
 export default document
