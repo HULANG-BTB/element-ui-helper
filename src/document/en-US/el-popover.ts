@@ -16,7 +16,7 @@ export const attributes: DocumentAttribute[] = [
     default: 'bottom'
   },
   { name: 'disabled', description: 'whether Popover is disabled', type: 'boolean', value: '—', default: 'false' },
-  { name: 'value / v-model', description: 'whether popover is visible', type: 'Boolean', value: '—', default: 'false' },
+  { name: 'value/v-model', description: 'whether popover is visible', type: 'Boolean', value: '—', default: 'false' },
   { name: 'offset', description: 'popover offset', type: 'number', value: '—', default: '0' },
   { name: 'transition', description: 'popover transition animation', type: 'string', value: '—', default: 'el-fade-in-linear' },
   {

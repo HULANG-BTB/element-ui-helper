@@ -5,7 +5,7 @@ import { DocumentEvent } from '@/document'
 import { DocumentSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'boolean / string / number', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'boolean / string / number', value: '—', default: '—' },
   { name: 'multiple', description: 'whether multiple-select is activated', type: 'boolean', value: '—', default: 'false' },
   { name: 'disabled', description: 'whether Select is disabled', type: 'boolean', value: '—', default: 'false' },
   { name: 'value-key', description: 'unique identity key name for value, required when value is an object', type: 'string', value: '—', default: 'value' },

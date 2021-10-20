@@ -6,7 +6,7 @@ import { DocumentSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: 'value / v-model',
+    name: 'value/v-model',
     description: '绑定值',
     type: 'date(DateTimePicker) / array(DateTimeRangePicker)',
     value: '—',

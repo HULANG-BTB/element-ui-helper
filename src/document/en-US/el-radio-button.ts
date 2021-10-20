@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: 'value / v-model',
+    name: 'value/v-model',
     description: 'binding value',
     type: 'string / number / boolean',
     value: '—',

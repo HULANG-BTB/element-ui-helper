@@ -4,7 +4,7 @@ import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: 'value / v-model',
+    name: 'value/v-model',
     description: '当前激活的面板(如果是手风琴模式，绑定值类型需要为`string`，否则为`array`)',
     type: 'string / array',
     value: '—',

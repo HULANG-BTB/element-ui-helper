@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'array', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'array', value: '—', default: '—' },
   { name: 'size', description: 'size of checkbox buttons or bordered checkboxes', type: 'string', value: 'medium / small / mini', default: '—' },
   { name: 'disabled', description: 'whether the nesting checkboxes are disabled', type: 'boolean', value: '—', default: 'false' },
   { name: 'min', description: 'minimum number of checkbox checked', type: 'number', value: '—', default: '—' },

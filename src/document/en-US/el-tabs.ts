@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value, name of the selected tab', type: 'string', value: '—', default: 'name of first tab' },
+  { name: 'value/v-model', description: 'binding value, name of the selected tab', type: 'string', value: '—', default: 'name of first tab' },
   { name: 'type', description: 'type of Tab', type: 'string', value: 'card/border-card', default: '—' },
   { name: 'closable', description: 'whether Tab is closable', type: 'boolean', value: '—', default: 'false' },
   { name: 'addable', description: 'whether Tab is addable', type: 'boolean', value: '—', default: 'false' },

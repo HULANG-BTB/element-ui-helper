@@ -6,7 +6,7 @@ import { DocumentSlot } from '@/document'
 import { DocumentScopedSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'array', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'array', value: '—', default: '—' },
   { name: 'data', description: 'data source', type: 'array[{ key, label, disabled }]', value: '—', default: '[ ]' },
   { name: 'filterable', description: 'whether Transfer is filterable', type: 'boolean', value: '—', default: 'false' },
   { name: 'filter-placeholder', description: 'placeholder for the filter input', type: 'string', value: '—', default: 'Enter keyword' },

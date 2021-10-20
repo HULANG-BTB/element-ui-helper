@@ -11,7 +11,7 @@ export const attributes: DocumentAttribute[] = [
     value: 'top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end',
     default: 'bottom'
   },
-  { name: 'value / v-model', description: 'visibility of Tooltip', type: 'boolean', value: '—', default: 'false' },
+  { name: 'value/v-model', description: 'visibility of Tooltip', type: 'boolean', value: '—', default: 'false' },
   { name: 'disabled', description: 'whether Tooltip is disabled', type: 'boolean', value: '—', default: 'false' },
   { name: 'offset', description: 'offset of the Tooltip', type: 'number', value: '—', default: '0' },
   { name: 'transition', description: 'animation name', type: 'string', value: '—', default: 'el-fade-in-linear' },

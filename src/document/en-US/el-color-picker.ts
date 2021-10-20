@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'string', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'string', value: '—', default: '—' },
   { name: 'disabled', description: 'whether to disable the ColorPicker', type: 'boolean', value: '—', default: 'false' },
   { name: 'size', description: 'size of ColorPicker', type: 'string', value: '—', default: 'medium / small / mini' },
   { name: 'show-alpha', description: 'whether to display the alpha slider', type: 'boolean', value: '—', default: 'false' },

@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
+  { name: 'value/v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
   { name: 'min', description: 'minimum value', type: 'number', value: '—', default: '0' },
   { name: 'max', description: 'maximum value', type: 'number', value: '—', default: '100' },
   { name: 'disabled', description: 'whether Slider is disabled', type: 'boolean', value: '—', default: 'false' },

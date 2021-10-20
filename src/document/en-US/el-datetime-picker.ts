@@ -4,7 +4,7 @@ import { DocumentMethod } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'date(DateTimePicker) / array(DateTimeRangePicker)', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'date(DateTimePicker) / array(DateTimeRangePicker)', value: '—', default: '—' },
   { name: 'readonly', description: 'whether DatePicker is read only', type: 'boolean', value: '—', default: 'false' },
   { name: 'disabled', description: 'whether DatePicker is disabled', type: 'boolean', value: '—', default: 'false' },
   { name: 'editable', description: 'whether the input is editable', type: 'boolean', value: '—', default: 'true' },

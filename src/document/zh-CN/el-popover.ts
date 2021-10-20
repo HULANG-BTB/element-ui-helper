@@ -47,7 +47,7 @@ export const attributes: DocumentAttribute[] = [
     default: 'false'
   },
   {
-    name: 'value / v-model',
+    name: 'value/v-model',
     description: '状态是否可见',
     type: 'Boolean',
     value: '—',

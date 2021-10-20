@@ -4,7 +4,7 @@ import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
   {
-    name: 'value / v-model',
+    name: 'value/v-model',
     description: '绑定值，选中选项卡的 name',
     type: 'string',
     value: '—',

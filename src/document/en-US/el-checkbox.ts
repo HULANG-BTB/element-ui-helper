@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'string / number / boolean', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'string / number / boolean', value: '—', default: '—' },
   { name: 'label', description: 'value of the Checkbox when used inside a `checkbox-group`', type: 'string / number / boolean', value: '—', default: '—' },
   { name: 'true-label', description: "value of the Checkbox if it's checked", type: 'string / number', value: '—', default: '—' },
   { name: 'false-label', description: "value of the Checkbox if it's not checked", type: 'string / number', value: '—', default: '—' },

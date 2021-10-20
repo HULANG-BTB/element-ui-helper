@@ -12,7 +12,7 @@ export const attributes: DocumentAttribute[] = [
     default: 'text'
   },
   {
-    name: 'value / v-model',
+    name: 'value/v-model',
     description: '绑定值',
     type: 'string / number',
     value: '—',

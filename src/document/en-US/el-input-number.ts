@@ -4,7 +4,7 @@ import { DocumentMethod } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
+  { name: 'value/v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
   { name: 'min', description: 'the minimum allowed value', type: 'number', value: '—', default: '`-Infinity`' },
   { name: 'max', description: 'the maximum allowed value', type: 'number', value: '—', default: '`Infinity`' },
   { name: 'step', description: 'incremental step', type: 'number', value: '—', default: '1' },

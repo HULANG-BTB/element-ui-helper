@@ -5,7 +5,7 @@ import { DocumentEvent } from '@/document'
 import { DocumentSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: '-', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: '-', value: '—', default: '—' },
   { name: 'options', description: 'data of the options，the key of `value` and `label` can be customize by `Props`.', type: 'array', value: '—', default: '—' },
   { name: 'props', description: 'configuration options, see the following table.', type: 'object', value: '—', default: '—' },
   { name: 'size', description: 'size of input', type: 'string', value: 'medium / small / mini', default: '—' },

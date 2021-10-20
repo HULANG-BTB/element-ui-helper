@@ -2,7 +2,7 @@ import { ElDocument } from '@/document'
 import { DocumentAttribute } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'Date/string/number', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'Date/string/number', value: '—', default: '—' },
   {
     name: 'range',
     description: 'time range, including start time and end time. Start time must be start day of week, end time must be end day of week, the time span cannot exceed two months.',

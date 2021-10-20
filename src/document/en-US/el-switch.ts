@@ -4,7 +4,7 @@ import { DocumentMethod } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'boolean / string / number', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'boolean / string / number', value: '—', default: '—' },
   { name: 'disabled', description: 'whether Switch is disabled', type: 'boolean', value: '—', default: 'false' },
   { name: 'width', description: 'width of Switch', type: 'number', value: '—', default: '40' },
   { name: 'active-icon-class', description: 'class name of the icon displayed when in `on` state, overrides `active-text`', type: 'string', value: '—', default: '—' },

@@ -3,7 +3,7 @@ import { DocumentAttribute } from '@/document'
 import { DocumentEvent } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
+  { name: 'value/v-model', description: 'binding value', type: 'number', value: '—', default: '0' },
   { name: 'max', description: 'max rating score', type: 'number', value: '—', default: '5' },
   { name: 'disabled', description: 'whether Rate is read-only', type: 'boolean', value: '—', default: 'false' },
   { name: 'allow-half', description: 'whether picking half start is allowed', type: 'boolean', value: '—', default: 'false' },

@@ -12,7 +12,7 @@ export const attributes: DocumentAttribute[] = [
     value: 'text, textarea and other [native input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)',
     default: 'text'
   },
-  { name: 'value / v-model', description: 'binding value', type: 'string / number', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'string / number', value: '—', default: '—' },
   { name: 'maxlength', description: 'same as `maxlength` in native input', type: 'number', value: '—', default: '—' },
   { name: 'minlength', description: 'same as `minlength` in native input', type: 'number', value: '—', default: '—' },
   { name: 'show-word-limit', description: "whether show word count，only works when `type` is 'text' or 'textarea'", type: 'boolean', value: '—', default: 'false' },

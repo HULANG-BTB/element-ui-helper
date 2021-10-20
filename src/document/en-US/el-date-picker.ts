@@ -5,7 +5,7 @@ import { DocumentEvent } from '@/document'
 import { DocumentSlot } from '@/document'
 
 export const attributes: DocumentAttribute[] = [
-  { name: 'value / v-model', description: 'binding value', type: 'date(DatePicker) / array(DateRangePicker)', value: '—', default: '—' },
+  { name: 'value/v-model', description: 'binding value', type: 'date(DatePicker) / array(DateRangePicker)', value: '—', default: '—' },
   { name: 'readonly', description: 'whether DatePicker is read only', type: 'boolean', value: '—', default: 'false' },
   { name: 'disabled', description: 'whether DatePicker is disabled', type: 'boolean', value: '—', default: 'false' },
   { name: 'size', description: 'size of Input', type: 'string', value: 'large/small/mini', default: '—' },
