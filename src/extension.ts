@@ -1,7 +1,7 @@
 import { ExtensionContext } from 'vscode'
 import * as vscode from 'vscode'
 
-import { ElementHoverProvier } from './hover-tips/element-hover-provider'
+import { ElementHoverProvider } from './hover-tips/element-hover-provider'
 import { ElementCompletionItemProvider } from './completion/element-completion-item-povider'
 
 export function activate(context: ExtensionContext): void {
@@ -39,7 +39,7 @@ export function activate(context: ExtensionContext): void {
           scheme: 'file'
         }
       ],
-      new ElementHoverProvier()
+      new ElementHoverProvider()
     )
   )
 }

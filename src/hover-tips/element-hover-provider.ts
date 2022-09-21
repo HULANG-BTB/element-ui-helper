@@ -3,10 +3,10 @@ import { HoverProvider, TextDocument, Position, CancellationToken, ProviderResul
 import { ElDocument, localDocument } from '@/document'
 import { HoverDocumentGenerator } from '@/utils/document-generator'
 import { toKebabCase } from '../utils'
-import { ExtensionConfigutation, ExtensionLanguage } from '../'
+import { ExtensionConfiguration, ExtensionLanguage } from '../'
 import { TagObject } from '.'
 
-export class ElementHoverProvier implements HoverProvider {
+export class ElementHoverProvider implements HoverProvider {
   private _position!: Position
   private _document!: TextDocument
   private _token!: CancellationToken
@@ -154,7 +154,7 @@ export class ElementHoverProvier implements HoverProvider {
    * @param range 区域
    */
   getHoverInstance(tag: TagObject | undefined, attr: string, range: Range) {
-    const config = workspace.getConfiguration().get<ExtensionConfigutation>('element-ui-helper')
+    const config = workspace.getConfiguration().get<ExtensionConfiguration>('element-ui-helper')
     const language = config?.language || ExtensionLanguage.cn
 
     const kebabCaseTag = toKebabCase(tag?.text)

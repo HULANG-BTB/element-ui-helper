@@ -3,6 +3,6 @@ export enum ExtensionLanguage {
   en = 'en-US'
 }
 
-export interface ExtensionConfigutation {
+export interface ExtensionConfiguration {
   language: ExtensionLanguage
 }
