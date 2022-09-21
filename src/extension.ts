@@ -2,7 +2,7 @@ import { ExtensionContext } from 'vscode'
 import * as vscode from 'vscode'
 
 import { ElementHoverProvider } from './hover-tips/element-hover-provider'
-import { ElementCompletionItemProvider } from './completion/element-completion-item-povider'
+import { ElementCompletionItemProvider } from './completion/element-completion-item-provider'
 
 export function activate(context: ExtensionContext): void {
   console.log('extension "element-ui-helper" is now active!')

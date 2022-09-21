@@ -194,7 +194,7 @@ export class ElementCompletionItemProvider implements CompletionItemProvider<Com
     const preText = this.getTextBeforePosition(this._position)
     const prefix = preText.replace(/.*@([\w-]*)$/, '$1')
     const events: DocumentEvent[] = document[tag]?.events || []
-    const likeTag = events.filter((evnet: DocumentEvent) => evnet.name.includes(prefix))
+    const likeTag = events.filter((event: DocumentEvent) => event.name.includes(prefix))
     likeTag.forEach((event: DocumentEvent) => {
       const start = preText.lastIndexOf('@') + 1
       const end = start + prefix.length

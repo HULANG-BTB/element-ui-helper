@@ -10,7 +10,7 @@ export const attributes: DocumentAttribute[] = [
     value: '—',
     default: '—'
   },
-  { name: 'first-day-of-week', description: 'fisrt day of week', type: 'Number', value: '1 to 7', default: '1' }
+  { name: 'first-day-of-week', description: 'first day of week', type: 'Number', value: '1 to 7', default: '1' }
 ]
 
 export const document: ElDocument = { attributes }
